@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Grunt使用指南 | Xiaowei.Ge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前言
+grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。
+
+在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grunt使用指南">
+<meta property="og:url" content="http://gexiaowei.me/2015/10/27/grunt-simple-guide/index.html">
+<meta property="og:site_name" content="Xiaowei.Ge">
+<meta property="og:description" content="前言
+grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。
+
+在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列">
+<meta property="og:image" content="http://www.gruntjs.net/img/grunt-logo.png">
+<meta property="og:updated_time" content="2015-10-26T17:24:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grunt使用指南">
+<meta name="twitter:description" content="前言
+grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。
+
+在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列">
+  
+    <link rel="alternative" href="/atom.xml" title="Xiaowei.Ge" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://s.gravatar.com/avatar/2e1c7dfe97966f4173709b9ad32a122d?s=200" class="js-avatar" style="width: 100%;height: 100%;opacity: 1;">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Xiaowei.Ge</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">爱前端，爱Javascript，最爱我的小玉...</p>
+		
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/about">关于我</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/gexiaowei" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/autumnmu" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/ge-xiao-wei-54" title="zhihu">zhihu</a>
+					        
+								<a class="mail" target="_blank" href="mailto:gandxiaowei@gmail.com" title="mail">mail</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				
+				
+
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Xiaowei.Ge</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="http://s.gravatar.com/avatar/2e1c7dfe97966f4173709b9ad32a122d?s=200" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Xiaowei.Ge</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">爱前端，爱Javascript，最爱我的小玉...</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/about">关于我</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/gexiaowei" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/autumnmu" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="http://www.zhihu.com/people/ge-xiao-wei-54" title="zhihu">zhihu</a>
+			        
+						<a class="mail" target="_blank" href="mailto:gandxiaowei@gmail.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-grunt-simple-guide" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/27/grunt-simple-guide/" class="article-date">
+  	<time datetime="2015-10-26T17:19:22.000Z" itemprop="datePublished">2015-10-27</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Grunt使用指南
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/grunt/">grunt</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/guide/">guide</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://www.gruntjs.net/img/grunt-logo.png" alt="logo"></p>
+<h2 id="前言">前言</h2><blockquote>
+<p>grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。</p>
+</blockquote>
+<p>在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列表找到用于发布的sftp的插件，而在grunt中找到了。可见grunt的插件生态非常完整，这是grunt的一个优势（现在gulp已经存在了sftp插件）。</p>
+<p>ps:在gulp的使用指南中,我们简单的介绍了node和npm一些使用方法，这里就不多做介绍了。</p>
+<a id="more"></a>
+<h2 id="安装Grunt">安装Grunt</h2><blockquote>
+<p>在<a href="http://www.gruntjs.net/" target="_blank" rel="external">gruntjs官网</a>下有详细介绍grunt的具体使用方法和API,可以访问查找。</p>
+</blockquote>
+<h4 id="全局安装_cli">全局安装 cli</h4><p><code>npm install -g grunt-cli</code><br>允许我们使用grunt命令</p>
+<h4 id="在项目根目录下创建一个名为_Gruntfile-js_的文件：">在项目根目录下创建一个名为 Gruntfile.js 的文件：</h4><pre><code><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">grunt</span>) </span>{
+
+  <span class="comment">// Project configuration.</span>
+  grunt.initConfig({
+    pkg: grunt.file.readJSON(<span class="string">'package.json'</span>),
+    uglify: {
+          options: {
+            banner: <span class="string">'/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("yyyy-mm-dd") %&gt; */\n'</span>
+          },
+          build: {
+            src: <span class="string">'src/&lt;%= pkg.name %&gt;.js'</span>,
+            dest: <span class="string">'build/&lt;%= pkg.name %&gt;.min.js'</span>
+          }
+    }
+  });
+
+  <span class="comment">// 加载包含 "uglify" 任务的插件。</span>
+  grunt.loadNpmTasks(<span class="string">'grunt-contrib-uglify'</span>);
+
+  <span class="comment">// 默认被执行的任务列表。</span>
+  grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'uglify'</span>]);
+</code></pre><p>};</p>
+<h4 id="运行_grunt：">运行 grunt：</h4><p><code>grunt &lt;task-name&gt;</code></p>
+<p><strong>ps:task-name默认为default</strong></p>
+<h2 id="常用的grunt插件包">常用的grunt插件包</h2><blockquote>
+<p>在这里会介绍一些常用的插件，它们的地址和基本用法，在他们各自的主页上有各自的具体参数和使用方式，同时可以访问<a href="http://www.gruntjs.net/plugins" target="_blank" rel="external">grunt插件列表</a>查找更多插件（<strong>grunt-contrib开头的插件是由官方维护</strong>）。</p>
+</blockquote>
+<h4 id="grunt-contrib-clean"><a href="https://www.npmjs.com/package/grunt-contrib-clean" target="_blank" rel="external">grunt-contrib-clean</a></h4><p>删除文件夹以及指定的文件</p>
+<pre><code><span class="tag">clean</span>: <span class="rules">{
+      <span class="rule"><span class="attribute">target</span>:<span class="value"> {
+        src: [<span class="string">"path/to/dir/one"</span>, <span class="string">"path/to/dir/two"</span>]
+      </span></span></span>}
+}
+</code></pre><h4 id="grunt-contrib-imagemin"><a href="https://www.npmjs.com/package/grunt-contrib-imagemin" target="_blank" rel="external">grunt-contrib-imagemin</a></h4><p>压缩图片文件</p>
+<pre><code>imagemin: {                                <span class="comment">// Task </span>
+    <span class="keyword">static</span>: {                              <span class="comment">// Target </span>
+          options: {                           <span class="comment">// Target options </span>
+            optimizationLevel: <span class="number">3</span>,
+            svgoPlugins: [{ removeViewBox: <span class="literal">false</span> }],
+            <span class="keyword">use</span>: [mozjpeg()]
+              },
+          files: {                             <span class="comment">// Dictionary of files </span>
+            <span class="string">'dist/img.png'</span>: <span class="string">'src/img.png'</span>, <span class="comment">// 'destination': 'source' </span>
+            <span class="string">'dist/img.jpg'</span>: <span class="string">'src/img.jpg'</span>,
+            <span class="string">'dist/img.gif'</span>: <span class="string">'src/img.gif'</span>
+              }
+    },
+    <span class="keyword">dynamic</span>: {                             <span class="comment">// Another target </span>
+          files: [{
+            expand: <span class="literal">true</span>,                  <span class="comment">// Enable dynamic expansion </span>
+            cwd: <span class="string">'src/'</span>,                   <span class="comment">// Src matches are relative to this path </span>
+            src: [<span class="string">'**/*.{png,jpg,gif}'</span>],   <span class="comment">// Actual patterns to match </span>
+               dest: <span class="string">'dist/'</span>                  <span class="comment">// Destination path prefix </span>
+          }]
+    }
+  }
+</code></pre><p> 一个已知的bug是：如果不在<code>package.json</code>文件中在<code>grunt-contrib-imagemin</code>插件前引用<code>jpegtran-bin</code>插件会发生导致压缩错误(暂时不知道修复了没有)</p>
+<h4 id="grunt-contrib-cssmin"><a href="https://www.npmjs.com/package/grunt-contrib-cssmin" target="_blank" rel="external">grunt-contrib-cssmin</a></h4><p>压缩css文件</p>
+<pre><code><span class="tag">cssmin</span>: <span class="rules">{
+    <span class="rule"><span class="attribute">target</span>:<span class="value"> {
+        files: [{
+                expand: true,
+                 cwd: <span class="string">'styles/'</span>,
+                 src: [<span class="string">'*.css'</span>, <span class="string">'!*.min.css'</span>],
+                  dest: <span class="string">'dist/styles'</span>
+            </span></span></span>}]
+           }
+     }
+</code></pre><h4 id="grunt-contrib-uglify"><a href="https://www.npmjs.com/package/grunt-contrib-uglify" target="_blank" rel="external">grunt-contrib-uglify</a></h4><p>压缩js文件</p>
+<pre><code>uglify: {
+        all: {
+               options: {
+                 sourceMap: true
+               },
+            files: [{
+                 expand: true,
+                   cwd: <span class="string">'scripts/'</span>,
+                  src: [<span class="string">'*.js'</span>],
+               dest: <span class="string">'dist/scripts/'</span>
+            }]
+        }
+    }
+</code></pre><p><strong>其余等待补充</strong></p>
+<h2 id="grunt常用参数说明">grunt常用参数说明</h2><blockquote>
+<p>其实在使用中，最复杂的可能就是文件选择的问题，除了gulp常用的通配符意外，grunt还有很多其他的文件选择方式，在上面的插件使用例子中我可以看出有好几种方式，将会在以下的文章中具体说明，其他请查考<a href="http://www.gruntjs.net/api/grunt" target="_blank" rel="external">Grunt API 列表</a></p>
+</blockquote>
+<pre><code><span class="function"><span class="keyword">module</span>.<span class="title">exports</span> =</span> <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+    grunt.initConfig({
+        <span class="comment">//TODO Your Task Here</span>
+    }
+}
+</code></pre><p>这是一个<code>Gruntfile.js</code>定义的基本模块，grunt.initConfig初始化任务的列表</p>
+<p><code>grunt.loadNpmTasks(&#39;&lt;package-name-with-task&gt;&#39;);</code></p>
+<p>加载包含具体任务任务的插件。</p>
+<p><code>grunt.registerTask(&#39;&lt;task-name&gt;&#39;[, deps]);</code><br>注册一个任务,以及依赖任务（依赖任务为同步执行）</p>
+<p><code>grunt.file.readJSON(filepath [, options])</code><br>读取一个文件的内容，将其按照JSON格式解析，返回结果, 在字符串<code>&lt;%= key %&gt;</code>会被格式化相应数据。</p>
+<h2 id="文件以及文件夹的选择">文件以及文件夹的选择</h2><blockquote>
+<p>我们查考<code>grunt-contrib-imagemin</code>的列子来说明</p>
+</blockquote>
+<h4 id="1-指定文件到文件">1.指定文件到文件</h4><pre><code>files: {                             
+    <span class="symbol">'dist</span>/img.png': <span class="symbol">'src</span>/img.png',
+    <span class="symbol">'dist</span>/img.jpg': <span class="symbol">'src</span>/img.jpg',
+    <span class="symbol">'dist</span>/img.gif': <span class="symbol">'src</span>/img.gif'
+}
+</code></pre><p>这种最容易理解，就是把<code>src/img.png</code>文件压缩到<code>dist/img.png</code>文件，是一种一对一的映射关系</p>
+<h4 id="2-指定文件夹到指定文件夹(匹配模式)">2.指定文件夹到指定文件夹(匹配模式)</h4><pre><code><span class="string">files:</span> [{
+<span class="label">    expand:</span> <span class="literal">true</span>,                  <span class="comment">// Enable dynamic expansion </span>
+<span class="label">    cwd:</span> <span class="string">'src/'</span>,                   <span class="comment">// Src matches are relative to this path </span>
+<span class="label">    src:</span> [<span class="string">'**/*.{png,jpg,gif}'</span>],   <span class="comment">// Actual patterns to match </span>
+<span class="label">    dest:</span> <span class="string">'dist/'</span>                  <span class="comment">// Destination path prefix </span>
+ }]
+</code></pre><p><code>expand</code>启用扩展，设置为<code>true</code></p>
+<p><code>cwd</code>指定文件夹路径，</p>
+<p><code>src</code>匹配的文件，可使用和gulp一样的通配符,路径相对于<code>cwd</code>目录</p>
+<p><code>dest</code>输出目录</p>
+<p><code>cwd</code>和<code>dest</code>这些路径都是相对于根目录而言，可以设置grunt的<code>grunt.file.setBase</code>修改grunt的基本目录，但不推荐使用</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/27/gulp-simple-guide/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Gulp使用指南</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Xiaowei.Ge
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-65384216-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
