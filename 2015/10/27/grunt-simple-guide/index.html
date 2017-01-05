@@ -8,7 +8,7 @@
   <meta name="description" content="前言
 grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。
 
-在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列">
+在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Grunt使用指南">
 <meta property="og:url" content="http://gexiaowei.me/2015/10/27/grunt-simple-guide/index.html">
@@ -16,7 +16,7 @@ grunt是一个基于node一个前端自动构建工具，自动化。对于需�
 <meta property="og:description" content="前言
 grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。
 
-在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列">
+在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件">
 <meta property="og:image" content="http://www.gruntjs.net/img/grunt-logo.png">
 <meta property="og:updated_time" content="2015-10-26T17:24:01.000Z">
 <meta name="twitter:card" content="summary">
@@ -24,14 +24,15 @@ grunt是一个基于node一个前端自动构建工具，自动化。对于需�
 <meta name="twitter:description" content="前言
 grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。
 
-在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列">
+在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件">
+<meta name="twitter:image" content="http://www.gruntjs.net/img/grunt-logo.png">
   
     <link rel="alternative" href="/atom.xml" title="Xiaowei.Ge" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div id="container">
@@ -177,85 +178,85 @@ grunt是一个基于node一个前端自动构建工具，自动化。对于需�
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://www.gruntjs.net/img/grunt-logo.png" alt="logo"></p>
-<h2 id="前言">前言</h2><blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。</p>
 </blockquote>
 <p>在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列表找到用于发布的sftp的插件，而在grunt中找到了。可见grunt的插件生态非常完整，这是grunt的一个优势（现在gulp已经存在了sftp插件）。</p>
 <p>ps:在gulp的使用指南中,我们简单的介绍了node和npm一些使用方法，这里就不多做介绍了。</p>
 <a id="more"></a>
-<h2 id="安装Grunt">安装Grunt</h2><blockquote>
+<h2 id="安装Grunt"><a href="#安装Grunt" class="headerlink" title="安装Grunt"></a>安装Grunt</h2><blockquote>
 <p>在<a href="http://www.gruntjs.net/" target="_blank" rel="external">gruntjs官网</a>下有详细介绍grunt的具体使用方法和API,可以访问查找。</p>
 </blockquote>
-<h4 id="全局安装_cli">全局安装 cli</h4><p><code>npm install -g grunt-cli</code><br>允许我们使用grunt命令</p>
-<h4 id="在项目根目录下创建一个名为_Gruntfile-js_的文件：">在项目根目录下创建一个名为 Gruntfile.js 的文件：</h4><pre><code><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params">grunt</span>) </span>{
+<h4 id="全局安装-cli"><a href="#全局安装-cli" class="headerlink" title="全局安装 cli"></a>全局安装 cli</h4><p><code>npm install -g grunt-cli</code><br>允许我们使用grunt命令</p>
+<h4 id="在项目根目录下创建一个名为-Gruntfile-js-的文件："><a href="#在项目根目录下创建一个名为-Gruntfile-js-的文件：" class="headerlink" title="在项目根目录下创建一个名为 Gruntfile.js 的文件："></a>在项目根目录下创建一个名为 Gruntfile.js 的文件：</h4><pre><code>module.exports = function(grunt) {
 
-  <span class="comment">// Project configuration.</span>
+  // Project configuration.
   grunt.initConfig({
-    pkg: grunt.file.readJSON(<span class="string">'package.json'</span>),
+    pkg: grunt.file.readJSON(&apos;package.json&apos;),
     uglify: {
           options: {
-            banner: <span class="string">'/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today("yyyy-mm-dd") %&gt; */\n'</span>
+            banner: &apos;/*! &lt;%= pkg.name %&gt; &lt;%= grunt.template.today(&quot;yyyy-mm-dd&quot;) %&gt; */\n&apos;
           },
           build: {
-            src: <span class="string">'src/&lt;%= pkg.name %&gt;.js'</span>,
-            dest: <span class="string">'build/&lt;%= pkg.name %&gt;.min.js'</span>
+            src: &apos;src/&lt;%= pkg.name %&gt;.js&apos;,
+            dest: &apos;build/&lt;%= pkg.name %&gt;.min.js&apos;
           }
     }
   });
 
-  <span class="comment">// 加载包含 "uglify" 任务的插件。</span>
-  grunt.loadNpmTasks(<span class="string">'grunt-contrib-uglify'</span>);
+  // 加载包含 &quot;uglify&quot; 任务的插件。
+  grunt.loadNpmTasks(&apos;grunt-contrib-uglify&apos;);
 
-  <span class="comment">// 默认被执行的任务列表。</span>
-  grunt.registerTask(<span class="string">'default'</span>, [<span class="string">'uglify'</span>]);
+  // 默认被执行的任务列表。
+  grunt.registerTask(&apos;default&apos;, [&apos;uglify&apos;]);
 </code></pre><p>};</p>
-<h4 id="运行_grunt：">运行 grunt：</h4><p><code>grunt &lt;task-name&gt;</code></p>
+<h4 id="运行-grunt："><a href="#运行-grunt：" class="headerlink" title="运行 grunt："></a>运行 grunt：</h4><p><code>grunt &lt;task-name&gt;</code></p>
 <p><strong>ps:task-name默认为default</strong></p>
-<h2 id="常用的grunt插件包">常用的grunt插件包</h2><blockquote>
+<h2 id="常用的grunt插件包"><a href="#常用的grunt插件包" class="headerlink" title="常用的grunt插件包"></a>常用的grunt插件包</h2><blockquote>
 <p>在这里会介绍一些常用的插件，它们的地址和基本用法，在他们各自的主页上有各自的具体参数和使用方式，同时可以访问<a href="http://www.gruntjs.net/plugins" target="_blank" rel="external">grunt插件列表</a>查找更多插件（<strong>grunt-contrib开头的插件是由官方维护</strong>）。</p>
 </blockquote>
-<h4 id="grunt-contrib-clean"><a href="https://www.npmjs.com/package/grunt-contrib-clean" target="_blank" rel="external">grunt-contrib-clean</a></h4><p>删除文件夹以及指定的文件</p>
-<pre><code><span class="tag">clean</span>: <span class="rules">{
-      <span class="rule"><span class="attribute">target</span>:<span class="value"> {
-        src: [<span class="string">"path/to/dir/one"</span>, <span class="string">"path/to/dir/two"</span>]
-      </span></span></span>}
+<h4 id="grunt-contrib-clean"><a href="#grunt-contrib-clean" class="headerlink" title="grunt-contrib-clean"></a><a href="https://www.npmjs.com/package/grunt-contrib-clean" target="_blank" rel="external">grunt-contrib-clean</a></h4><p>删除文件夹以及指定的文件</p>
+<pre><code>clean: {
+      target: {
+        src: [&quot;path/to/dir/one&quot;, &quot;path/to/dir/two&quot;]
+      }
 }
-</code></pre><h4 id="grunt-contrib-imagemin"><a href="https://www.npmjs.com/package/grunt-contrib-imagemin" target="_blank" rel="external">grunt-contrib-imagemin</a></h4><p>压缩图片文件</p>
-<pre><code>imagemin: {                                <span class="comment">// Task </span>
-    <span class="keyword">static</span>: {                              <span class="comment">// Target </span>
-          options: {                           <span class="comment">// Target options </span>
-            optimizationLevel: <span class="number">3</span>,
-            svgoPlugins: [{ removeViewBox: <span class="literal">false</span> }],
-            <span class="keyword">use</span>: [mozjpeg()]
+</code></pre><h4 id="grunt-contrib-imagemin"><a href="#grunt-contrib-imagemin" class="headerlink" title="grunt-contrib-imagemin"></a><a href="https://www.npmjs.com/package/grunt-contrib-imagemin" target="_blank" rel="external">grunt-contrib-imagemin</a></h4><p>压缩图片文件</p>
+<pre><code>imagemin: {                                // Task 
+    static: {                              // Target 
+          options: {                           // Target options 
+            optimizationLevel: 3,
+            svgoPlugins: [{ removeViewBox: false }],
+            use: [mozjpeg()]
               },
-          files: {                             <span class="comment">// Dictionary of files </span>
-            <span class="string">'dist/img.png'</span>: <span class="string">'src/img.png'</span>, <span class="comment">// 'destination': 'source' </span>
-            <span class="string">'dist/img.jpg'</span>: <span class="string">'src/img.jpg'</span>,
-            <span class="string">'dist/img.gif'</span>: <span class="string">'src/img.gif'</span>
+          files: {                             // Dictionary of files 
+            &apos;dist/img.png&apos;: &apos;src/img.png&apos;, // &apos;destination&apos;: &apos;source&apos; 
+            &apos;dist/img.jpg&apos;: &apos;src/img.jpg&apos;,
+            &apos;dist/img.gif&apos;: &apos;src/img.gif&apos;
               }
     },
-    <span class="keyword">dynamic</span>: {                             <span class="comment">// Another target </span>
+    dynamic: {                             // Another target 
           files: [{
-            expand: <span class="literal">true</span>,                  <span class="comment">// Enable dynamic expansion </span>
-            cwd: <span class="string">'src/'</span>,                   <span class="comment">// Src matches are relative to this path </span>
-            src: [<span class="string">'**/*.{png,jpg,gif}'</span>],   <span class="comment">// Actual patterns to match </span>
-               dest: <span class="string">'dist/'</span>                  <span class="comment">// Destination path prefix </span>
+            expand: true,                  // Enable dynamic expansion 
+            cwd: &apos;src/&apos;,                   // Src matches are relative to this path 
+            src: [&apos;**/*.{png,jpg,gif}&apos;],   // Actual patterns to match 
+               dest: &apos;dist/&apos;                  // Destination path prefix 
           }]
     }
   }
 </code></pre><p> 一个已知的bug是：如果不在<code>package.json</code>文件中在<code>grunt-contrib-imagemin</code>插件前引用<code>jpegtran-bin</code>插件会发生导致压缩错误(暂时不知道修复了没有)</p>
-<h4 id="grunt-contrib-cssmin"><a href="https://www.npmjs.com/package/grunt-contrib-cssmin" target="_blank" rel="external">grunt-contrib-cssmin</a></h4><p>压缩css文件</p>
-<pre><code><span class="tag">cssmin</span>: <span class="rules">{
-    <span class="rule"><span class="attribute">target</span>:<span class="value"> {
+<h4 id="grunt-contrib-cssmin"><a href="#grunt-contrib-cssmin" class="headerlink" title="grunt-contrib-cssmin"></a><a href="https://www.npmjs.com/package/grunt-contrib-cssmin" target="_blank" rel="external">grunt-contrib-cssmin</a></h4><p>压缩css文件</p>
+<pre><code>cssmin: {
+    target: {
         files: [{
                 expand: true,
-                 cwd: <span class="string">'styles/'</span>,
-                 src: [<span class="string">'*.css'</span>, <span class="string">'!*.min.css'</span>],
-                  dest: <span class="string">'dist/styles'</span>
-            </span></span></span>}]
+                 cwd: &apos;styles/&apos;,
+                 src: [&apos;*.css&apos;, &apos;!*.min.css&apos;],
+                  dest: &apos;dist/styles&apos;
+            }]
            }
      }
-</code></pre><h4 id="grunt-contrib-uglify"><a href="https://www.npmjs.com/package/grunt-contrib-uglify" target="_blank" rel="external">grunt-contrib-uglify</a></h4><p>压缩js文件</p>
+</code></pre><h4 id="grunt-contrib-uglify"><a href="#grunt-contrib-uglify" class="headerlink" title="grunt-contrib-uglify"></a><a href="https://www.npmjs.com/package/grunt-contrib-uglify" target="_blank" rel="external">grunt-contrib-uglify</a></h4><p>压缩js文件</p>
 <pre><code>uglify: {
         all: {
                options: {
@@ -263,19 +264,19 @@ grunt是一个基于node一个前端自动构建工具，自动化。对于需�
                },
             files: [{
                  expand: true,
-                   cwd: <span class="string">'scripts/'</span>,
-                  src: [<span class="string">'*.js'</span>],
-               dest: <span class="string">'dist/scripts/'</span>
+                   cwd: &apos;scripts/&apos;,
+                  src: [&apos;*.js&apos;],
+               dest: &apos;dist/scripts/&apos;
             }]
         }
     }
 </code></pre><p><strong>其余等待补充</strong></p>
-<h2 id="grunt常用参数说明">grunt常用参数说明</h2><blockquote>
+<h2 id="grunt常用参数说明"><a href="#grunt常用参数说明" class="headerlink" title="grunt常用参数说明"></a>grunt常用参数说明</h2><blockquote>
 <p>其实在使用中，最复杂的可能就是文件选择的问题，除了gulp常用的通配符意外，grunt还有很多其他的文件选择方式，在上面的插件使用例子中我可以看出有好几种方式，将会在以下的文章中具体说明，其他请查考<a href="http://www.gruntjs.net/api/grunt" target="_blank" rel="external">Grunt API 列表</a></p>
 </blockquote>
-<pre><code><span class="function"><span class="keyword">module</span>.<span class="title">exports</span> =</span> <span class="function"><span class="keyword">function</span> <span class="params">(grunt)</span> {</span>
+<pre><code>module.exports = function (grunt) {
     grunt.initConfig({
-        <span class="comment">//TODO Your Task Here</span>
+        //TODO Your Task Here
     }
 }
 </code></pre><p>这是一个<code>Gruntfile.js</code>定义的基本模块，grunt.initConfig初始化任务的列表</p>
@@ -283,20 +284,20 @@ grunt是一个基于node一个前端自动构建工具，自动化。对于需�
 <p>加载包含具体任务任务的插件。</p>
 <p><code>grunt.registerTask(&#39;&lt;task-name&gt;&#39;[, deps]);</code><br>注册一个任务,以及依赖任务（依赖任务为同步执行）</p>
 <p><code>grunt.file.readJSON(filepath [, options])</code><br>读取一个文件的内容，将其按照JSON格式解析，返回结果, 在字符串<code>&lt;%= key %&gt;</code>会被格式化相应数据。</p>
-<h2 id="文件以及文件夹的选择">文件以及文件夹的选择</h2><blockquote>
+<h2 id="文件以及文件夹的选择"><a href="#文件以及文件夹的选择" class="headerlink" title="文件以及文件夹的选择"></a>文件以及文件夹的选择</h2><blockquote>
 <p>我们查考<code>grunt-contrib-imagemin</code>的列子来说明</p>
 </blockquote>
-<h4 id="1-指定文件到文件">1.指定文件到文件</h4><pre><code>files: {                             
-    <span class="symbol">'dist</span>/img.png': <span class="symbol">'src</span>/img.png',
-    <span class="symbol">'dist</span>/img.jpg': <span class="symbol">'src</span>/img.jpg',
-    <span class="symbol">'dist</span>/img.gif': <span class="symbol">'src</span>/img.gif'
+<h4 id="1-指定文件到文件"><a href="#1-指定文件到文件" class="headerlink" title="1.指定文件到文件"></a>1.指定文件到文件</h4><pre><code>files: {                             
+    &apos;dist/img.png&apos;: &apos;src/img.png&apos;,
+    &apos;dist/img.jpg&apos;: &apos;src/img.jpg&apos;,
+    &apos;dist/img.gif&apos;: &apos;src/img.gif&apos;
 }
 </code></pre><p>这种最容易理解，就是把<code>src/img.png</code>文件压缩到<code>dist/img.png</code>文件，是一种一对一的映射关系</p>
-<h4 id="2-指定文件夹到指定文件夹(匹配模式)">2.指定文件夹到指定文件夹(匹配模式)</h4><pre><code><span class="string">files:</span> [{
-<span class="label">    expand:</span> <span class="literal">true</span>,                  <span class="comment">// Enable dynamic expansion </span>
-<span class="label">    cwd:</span> <span class="string">'src/'</span>,                   <span class="comment">// Src matches are relative to this path </span>
-<span class="label">    src:</span> [<span class="string">'**/*.{png,jpg,gif}'</span>],   <span class="comment">// Actual patterns to match </span>
-<span class="label">    dest:</span> <span class="string">'dist/'</span>                  <span class="comment">// Destination path prefix </span>
+<h4 id="2-指定文件夹到指定文件夹-匹配模式"><a href="#2-指定文件夹到指定文件夹-匹配模式" class="headerlink" title="2.指定文件夹到指定文件夹(匹配模式)"></a>2.指定文件夹到指定文件夹(匹配模式)</h4><pre><code>files: [{
+    expand: true,                  // Enable dynamic expansion 
+    cwd: &apos;src/&apos;,                   // Src matches are relative to this path 
+    src: [&apos;**/*.{png,jpg,gif}&apos;],   // Actual patterns to match 
+    dest: &apos;dist/&apos;                  // Destination path prefix 
  }]
 </code></pre><p><code>expand</code>启用扩展，设置为<code>true</code></p>
 <p><code>cwd</code>指定文件夹路径，</p>
@@ -342,7 +343,7 @@ grunt是一个基于node一个前端自动构建工具，自动化。对于需�
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 Xiaowei.Ge
+    		&copy; 2017 Xiaowei.Ge
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -352,7 +353,7 @@ grunt是一个基于node一个前端自动构建工具，自动化。对于需�
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -368,8 +369,8 @@ grunt是一个基于node一个前端自动构建工具，自动化。对于需�
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 

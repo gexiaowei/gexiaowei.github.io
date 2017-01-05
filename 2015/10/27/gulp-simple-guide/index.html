@@ -25,13 +25,14 @@ ps:本文基于Mac环境下书写，Win环境下情自行探索">
 gulp是一个基于node一个前端自动构建工具，与已知的grunt相似，但于grunt不同的是，使用node.js串流(streams)让建构更快速，本文后面会讲到该方式的优势
 
 ps:本文基于Mac环境下书写，Win环境下情自行探索">
+<meta name="twitter:image" content="https://raw.github.com/gulpjs/artwork/master/gulp.png">
   
     <link rel="alternative" href="/atom.xml" title="Xiaowei.Ge" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
   
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
   <div id="container">
@@ -177,85 +178,85 @@ ps:本文基于Mac环境下书写，Win环境下情自行探索">
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="https://raw.github.com/gulpjs/artwork/master/gulp.png" alt="logo"></p>
-<h2 id="前言">前言</h2><blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>gulp是一个基于node一个前端自动构建工具，与已知的grunt相似，但于grunt不同的是，使用node.js串流(streams)让建构更快速，本文后面会讲到该方式的优势</p>
 </blockquote>
 <p>ps:本文基于Mac环境下书写，Win环境下情自行探索</p>
 <a id="more"></a>
-<h2 id="安装Node">安装Node</h2><blockquote>
+<h2 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h2><blockquote>
 <p>访问<a href="https://nodejs.org/en/" target="_blank" rel="external">nodejs官网地址</a>下载nodejs,</p>
 </blockquote>
 <p>安装完成后可以用 node -v 来校验node是否安装完成(最新版本为：4.2.1)。</p>
 <p>npm(Node Package Manager)管理工具是node自带的包管理工具，，是一个NodeJS包管理和分发工具，我们需要的插件的安装全部依赖于npm下载</p>
-<h4 id="npm初始化">npm初始化</h4><p><code>npm init</code></p>
+<h4 id="npm初始化"><a href="#npm初始化" class="headerlink" title="npm初始化"></a>npm初始化</h4><p><code>npm init</code></p>
 <p>在当前目录下生成一个package.json的文件，安装控制台的提示输入即可。</p>
-<h4 id="npm全局安装依赖包">npm全局安装依赖包</h4><p><code>npm install &lt;package-name&gt; -g</code></p>
+<h4 id="npm全局安装依赖包"><a href="#npm全局安装依赖包" class="headerlink" title="npm全局安装依赖包"></a>npm全局安装依赖包</h4><p><code>npm install &lt;package-name&gt; -g</code></p>
 <p><strong>请注意以下问题：</strong></p>
 <p>在mac下使用全局安装会提示权限不足的问题，可以使用<code>sudo</code>命令来临时解决权限不足的问题，但是根本解决的问题请参考官方文档<a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions" target="_blank" rel="external">fixing-npm-permissions</a></p>
-<h4 id="npm的安装依赖包">npm的安装依赖包</h4><p><code>npm install</code></p>
+<h4 id="npm的安装依赖包"><a href="#npm的安装依赖包" class="headerlink" title="npm的安装依赖包"></a>npm的安装依赖包</h4><p><code>npm install</code></p>
 <p>会安装当前目录下目录下<code>package.json</code>文件夹<code>dependencies</code>字段下所有的依赖包</p>
-<h4 id="npm的新增依赖包">npm的新增依赖包</h4><p><code>npm install &lt;package-name&gt;</code><br>会安装当前依赖包的包名，并在当前目录下<code>package.json</code>文件夹<code>dependencies</code>字段增加一个字段</p>
-<h2 id="安装Gulp">安装Gulp</h2><blockquote>
+<h4 id="npm的新增依赖包"><a href="#npm的新增依赖包" class="headerlink" title="npm的新增依赖包"></a>npm的新增依赖包</h4><p><code>npm install &lt;package-name&gt;</code><br>会安装当前依赖包的包名，并在当前目录下<code>package.json</code>文件夹<code>dependencies</code>字段增加一个字段</p>
+<h2 id="安装Gulp"><a href="#安装Gulp" class="headerlink" title="安装Gulp"></a>安装Gulp</h2><blockquote>
 <p>在<a href="http://www.gulpjs.com.cn" target="_blank" rel="external">gulp中文网</a>下有详细介绍gulp的一些细节,可以访问查找。</p>
 </blockquote>
-<h4 id="全局安装_gulp：">全局安装 gulp：</h4><p><code>npm install --global gulp</code></p>
-<h4 id="作为项目的开发依赖（devDependencies）安装：">作为项目的开发依赖（devDependencies）安装：</h4><p><code>npm install --save-dev gulp</code></p>
-<h4 id="在项目根目录下创建一个名为_gulpfile-js_的文件：">在项目根目录下创建一个名为 gulpfile.js 的文件：</h4><pre><code><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);
+<h4 id="全局安装-gulp："><a href="#全局安装-gulp：" class="headerlink" title="全局安装 gulp："></a>全局安装 gulp：</h4><p><code>npm install --global gulp</code></p>
+<h4 id="作为项目的开发依赖（devDependencies）安装："><a href="#作为项目的开发依赖（devDependencies）安装：" class="headerlink" title="作为项目的开发依赖（devDependencies）安装："></a>作为项目的开发依赖（devDependencies）安装：</h4><p><code>npm install --save-dev gulp</code></p>
+<h4 id="在项目根目录下创建一个名为-gulpfile-js-的文件："><a href="#在项目根目录下创建一个名为-gulpfile-js-的文件：" class="headerlink" title="在项目根目录下创建一个名为 gulpfile.js 的文件："></a>在项目根目录下创建一个名为 gulpfile.js 的文件：</h4><pre><code>var gulp = require(&apos;gulp&apos;);
 
- gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-      <span class="comment">// 将你的默认的任务代码放在这</span>
+ gulp.task(&apos;default&apos;, function() {
+      // 将你的默认的任务代码放在这
 });
-</code></pre><h4 id="运行_gulp：">运行 gulp：</h4><p><code>gulp &lt;task-name&gt;</code></p>
+</code></pre><h4 id="运行-gulp："><a href="#运行-gulp：" class="headerlink" title="运行 gulp："></a>运行 gulp：</h4><p><code>gulp &lt;task-name&gt;</code></p>
 <p><strong>ps:task-name默认为default</strong></p>
-<h2 id="常用的gulp插件包">常用的gulp插件包</h2><blockquote>
+<h2 id="常用的gulp插件包"><a href="#常用的gulp插件包" class="headerlink" title="常用的gulp插件包"></a>常用的gulp插件包</h2><blockquote>
 <p>在这里会介绍一些常用的插件，它们的地址和基本用法，在他们各自的主页上有各自的具体参数和使用方式</p>
 </blockquote>
-<h4 id="gulp-rimraf"><a href="https://www.npmjs.com/package/gulp-rimraf" target="_blank" rel="external">gulp-rimraf</a></h4><p>删除文件夹以及指定的文件</p>
-<pre><code><span class="keyword">var</span> rimraf = <span class="built_in">require</span>(<span class="string">'gulp-rimraf'</span>);
+<h4 id="gulp-rimraf"><a href="#gulp-rimraf" class="headerlink" title="gulp-rimraf"></a><a href="https://www.npmjs.com/package/gulp-rimraf" target="_blank" rel="external">gulp-rimraf</a></h4><p>删除文件夹以及指定的文件</p>
+<pre><code>var rimraf = require(&apos;gulp-rimraf&apos;);
 
-gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-     <span class="keyword">return</span> gulp.src(<span class="string">'./**/*.js'</span>, { read: <span class="literal">false</span> }) <span class="comment">// much faster </span>
+gulp.task(&apos;default&apos;, function() {
+     return gulp.src(&apos;./**/*.js&apos;, { read: false }) // much faster 
                .pipe(rimraf());
 });
-</code></pre><h4 id="gulp-imagemin"><a href="https://www.npmjs.com/package/gulp-imagemin" target="_blank" rel="external">gulp-imagemin</a></h4><p>压缩图片文件（因为是用pngquant来做压缩，需要手动去依赖“imagemin-pngquant”包）</p>
-<pre><code><span class="keyword">var</span> gulp = <span class="keyword">require</span>(<span class="string">'gulp'</span>);
-<span class="keyword">var</span> imagemin = <span class="keyword">require</span>(<span class="string">'gulp-imagemin'</span>);
-<span class="keyword">var</span> pngquant = <span class="keyword">require</span>(<span class="string">'imagemin-pngquant'</span>);
+</code></pre><h4 id="gulp-imagemin"><a href="#gulp-imagemin" class="headerlink" title="gulp-imagemin"></a><a href="https://www.npmjs.com/package/gulp-imagemin" target="_blank" rel="external">gulp-imagemin</a></h4><p>压缩图片文件（因为是用pngquant来做压缩，需要手动去依赖“imagemin-pngquant”包）</p>
+<pre><code>var gulp = require(&apos;gulp&apos;);
+var imagemin = require(&apos;gulp-imagemin&apos;);
+var pngquant = require(&apos;imagemin-pngquant&apos;);
 
-gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
-    <span class="keyword">return</span> gulp.src(<span class="string">'src/images/*'</span>)
+gulp.task(&apos;default&apos;, function () {
+    return gulp.src(&apos;src/images/*&apos;)
         .pipe(imagemin({
-            progressive: <span class="keyword">true</span>,
-            svgoPlugins: [{removeViewBox: <span class="keyword">false</span>}],
-            <span class="keyword">use</span>: [<span class="title">pngquant</span>()]
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngquant()]
         }))
-        .<span class="title">pipe</span>(<span class="title">gulp</span>.<span class="title">dest</span>('<span class="title">dist</span>/<span class="title">images</span>'));
+        .pipe(gulp.dest(&apos;dist/images&apos;));
 });
-</code></pre><h4 id="gulp-minify-css"><a href="https://www.npmjs.com/package/gulp-minify-css" target="_blank" rel="external">gulp-minify-css</a></h4><p>压缩css文件</p>
-<pre><code><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);
-<span class="keyword">var</span> minifyCss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>);
+</code></pre><h4 id="gulp-minify-css"><a href="#gulp-minify-css" class="headerlink" title="gulp-minify-css"></a><a href="https://www.npmjs.com/package/gulp-minify-css" target="_blank" rel="external">gulp-minify-css</a></h4><p>压缩css文件</p>
+<pre><code>var gulp = require(&apos;gulp&apos;);
+var minifyCss = require(&apos;gulp-minify-css&apos;);
 
-gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-  <span class="keyword">return</span> gulp.src(<span class="string">'styles/*.css'</span>)
-    .pipe(minifyCss({compatibility: <span class="string">'ie8'</span>}))
-    .pipe(gulp.dest(<span class="string">'dist'</span>));
+gulp.task(&apos;default&apos;, function() {
+  return gulp.src(&apos;styles/*.css&apos;)
+    .pipe(minifyCss({compatibility: &apos;ie8&apos;}))
+    .pipe(gulp.dest(&apos;dist&apos;));
 });
-</code></pre><h4 id="gulp-uglify"><a href="https://www.npmjs.com/package/gulp-uglify" target="_blank" rel="external">gulp-uglify</a></h4><p>压缩js文件</p>
-<pre><code><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);
+</code></pre><h4 id="gulp-uglify"><a href="#gulp-uglify" class="headerlink" title="gulp-uglify"></a><a href="https://www.npmjs.com/package/gulp-uglify" target="_blank" rel="external">gulp-uglify</a></h4><p>压缩js文件</p>
+<pre><code>var uglify = require(&apos;gulp-uglify&apos;);
 
-gulp.task(<span class="string">'default'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{
-      <span class="keyword">return</span> gulp.src(<span class="string">'lib/*.js'</span>)
+gulp.task(&apos;default&apos;, function() {
+      return gulp.src(&apos;lib/*.js&apos;)
         .pipe(uglify())
-        .pipe(gulp.dest(<span class="string">'dist'</span>));
+        .pipe(gulp.dest(&apos;dist&apos;));
 });
 </code></pre><p><strong>其余等待补充</strong></p>
-<h2 id="gulp常用参数说明">gulp常用参数说明</h2><blockquote>
+<h2 id="gulp常用参数说明"><a href="#gulp常用参数说明" class="headerlink" title="gulp常用参数说明"></a>gulp常用参数说明</h2><blockquote>
 <p>在上面的常用gulp包里面我们发现了一些共通点，比如task、src、dest，这里只是简单的介绍部分函数，具体请参考<a href="http://www.gulpjs.com.cn/docs/api/" target="_blank" rel="external">gulp API 文档</a></p>
 </blockquote>
 <p><code>gulp.task(name[, deps], fn)</code></p>
 <p>定义一个gulp任务，包含任务的名字、依赖任务列表的数组以及该任务要执行的一些操作</p>
-<pre><code>gulp.task(<span class="string">'task-name'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-      <span class="comment">// 做一些事</span>
+<pre><code>gulp.task(&apos;task-name&apos;, function() {
+      // 做一些事
 });
 </code></pre><p><code>gulp.src(globs[, options])</code></p>
 <p>简单来说就是需要对那些文件进行处理，globs可以为一个String或Array</p>
@@ -268,57 +269,57 @@ gulp.task(<span class="string">'default'</span>, <span class="function"><span cl
 </blockquote>
 <p><code>gulp.dest(path[, options])</code><br>简单理解就是需要输出的文件夹</p>
 <p><code>pipe</code><br>具体请参考nodejs的pipe函数<a href="https://nodejs.org/api/stream.html#stream_readable_pipe_destination_options" target="_blank" rel="external">pipe</a></p>
-<h2 id="gulp任务依赖">gulp任务依赖</h2><blockquote>
+<h2 id="gulp任务依赖"><a href="#gulp任务依赖" class="headerlink" title="gulp任务依赖"></a>gulp任务依赖</h2><blockquote>
 <p>默认的，task 将以最大的并发数执行，也就是说，gulp 会一次性运行所有的 task 并且不做任何等待。也就是说gulp所有的任务都是一个异步操作，并不像grunt的任务列表是一个同步操作。具体的请参考<a href="http://www.gulpjs.com.cn/docs/recipes/running-tasks-in-series/" target="_blank" rel="external">串行方式运行任务</a></p>
 </blockquote>
-<h4 id="定义任务依赖">定义任务依赖</h4><p>在<br><code>gulp.task(name[, deps], fn)</code><br>这个函数里面的第个参数中我们需要定义我们需要依赖的任务数组</p>
+<h4 id="定义任务依赖"><a href="#定义任务依赖" class="headerlink" title="定义任务依赖"></a>定义任务依赖</h4><p>在<br><code>gulp.task(name[, deps], fn)</code><br>这个函数里面的第个参数中我们需要定义我们需要依赖的任务数组</p>
 <p>我们这里使用<a href="http://www.gulpjs.com.cn/docs/api/" target="_blank" rel="external">gulp API 文档</a>提供的第二种方式来定义依赖即返回一个stream:</p>
-<pre><code><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),
-      less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>),
-      clean = <span class="built_in">require</span>(<span class="string">'gulp-clean'</span>);
+<pre><code>var gulp = require(&apos;gulp&apos;),
+      less = require(&apos;gulp-less&apos;),
+      clean = require(&apos;gulp-clean&apos;);
 
-gulp.task(<span class="string">'clean'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-      <span class="keyword">return</span> gulp.src(<span class="string">'sample.css'</span>, { read:<span class="literal">false</span> })
+gulp.task(&apos;clean&apos;, function(){
+      return gulp.src(&apos;sample.css&apos;, { read:false })
         .pipe(clean());
 });
 
-gulp.task(<span class="string">'less'</span>, [<span class="string">'clean'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-      gulp.src(<span class="string">'sample.less'</span>)
+gulp.task(&apos;less&apos;, [&apos;clean&apos;], function(){
+      gulp.src(&apos;sample.less&apos;)
         .pipe(less())
-        .pipe(gulp.dest(<span class="string">'sample.css'</span>));
+        .pipe(gulp.dest(&apos;sample.css&apos;));
 });
 </code></pre><p>这就定义一个任务依赖，当我们运行less这个任务时，gulp会首先运行clean这个任务，等待clean这个任务完成后，在运行less任务</p>
 <p>对比：</p>
-<pre><code><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),
-      less = <span class="built_in">require</span>(<span class="string">'gulp-less'</span>),
-      clean = <span class="built_in">require</span>(<span class="string">'gulp-clean'</span>);
+<pre><code>var gulp = require(&apos;gulp&apos;),
+      less = require(&apos;gulp-less&apos;),
+      clean = require(&apos;gulp-clean&apos;);
 
-gulp.task(<span class="string">'clean'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-      gulp.src(<span class="string">'sample.css'</span>, { read:<span class="literal">false</span> })
+gulp.task(&apos;clean&apos;, function(){
+      gulp.src(&apos;sample.css&apos;, { read:false })
         .pipe(clean());
 });
 
-gulp.task(<span class="string">'less'</span>, [<span class="string">'clean'</span>], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{
-      gulp.src(<span class="string">'sample.less'</span>)
+gulp.task(&apos;less&apos;, [&apos;clean&apos;], function(){
+      gulp.src(&apos;sample.less&apos;)
         .pipe(less())
-        .pipe(gulp.dest(<span class="string">'sample.css'</span>));
+        .pipe(gulp.dest(&apos;sample.css&apos;));
 });
 </code></pre><p>这就定义一个任务依赖，当我们运行less这个任务时，gulp会首先运行clean这个任务，<strong>但是不需要等待clean这个任务完成后，在运行less任务</strong>，因为在定义less任务时候没有一个合法的回调或则return值来告诉gulp这个任务已经完成。记住任务是<strong>异步的</strong>。</p>
-<h4 id="一个任务依赖的例子">一个任务依赖的例子</h4><p>我们现在有4个任务A,B,C,D 互相依赖的关系是B依赖A,C依赖A,D依赖B,D依赖C</p>
-<pre><code>gulp.task(<span class="string">'A'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-    //<span class="keyword">do</span> sometiong <span class="keyword">and</span> <span class="keyword">return</span> stream
+<h4 id="一个任务依赖的例子"><a href="#一个任务依赖的例子" class="headerlink" title="一个任务依赖的例子"></a>一个任务依赖的例子</h4><p>我们现在有4个任务A,B,C,D 互相依赖的关系是B依赖A,C依赖A,D依赖B,D依赖C</p>
+<pre><code>gulp.task(&apos;A&apos;,function(){
+    //do sometiong and return stream
 });
 
-gulp.task(<span class="string">'B'</span>, [<span class="string">'A'</span>], <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-    //<span class="keyword">do</span> sometiong <span class="keyword">and</span> <span class="keyword">return</span> stream
+gulp.task(&apos;B&apos;, [&apos;A&apos;], function(){
+    //do sometiong and return stream
 });
 
-gulp.task(<span class="string">'C'</span>, [<span class="string">'A'</span>], <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-    //<span class="keyword">do</span> sometiong <span class="keyword">and</span> <span class="keyword">return</span> stream
+gulp.task(&apos;C&apos;, [&apos;A&apos;], function(){
+    //do sometiong and return stream
 });
 
-gulp.task(<span class="string">'D'</span>,[<span class="string">'B'</span>, <span class="string">'C'</span>], <span class="function"><span class="keyword">function</span><span class="params">()</span></span>{
-    //<span class="keyword">do</span> sometiong <span class="keyword">and</span> <span class="keyword">return</span> stream
+gulp.task(&apos;D&apos;,[&apos;B&apos;, &apos;C&apos;], function(){
+    //do sometiong and return stream
 });
 </code></pre><p>这个例子中，运行任务D，先执行A,然后B,C同时执行，B,C全部执行完成后执行D任务。注意<strong>A任务并不会执行两次</strong></p>
 
@@ -360,7 +361,7 @@ gulp.task(<span class="string">'D'</span>,[<span class="string">'B'</span>, <spa
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2015 Xiaowei.Ge
+    		&copy; 2017 Xiaowei.Ge
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -370,7 +371,7 @@ gulp.task(<span class="string">'D'</span>,[<span class="string">'B'</span>, <spa
 </footer>
     </div>
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
 
 <script>
@@ -386,8 +387,8 @@ gulp.task(<span class="string">'D'</span>,[<span class="string">'B'</span>, <spa
 		open_in_new: false
 	}
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
 
 
 
