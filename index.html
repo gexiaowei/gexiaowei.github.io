@@ -130,6 +130,69 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-install-third-part-crx-in-mac" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/13/install-third-part-crx-in-mac/" class="article-date">
+  	<time datetime="2017-01-13T08:55:20.000Z" itemprop="datePublished">2017-01-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/13/install-third-part-crx-in-mac/">将非官方扩展程序加入chrome的白名单</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在chrome中手动添加非官方扩展时，会出现重启浏览器以后无法启用扩展的情况（如图所示：）<br><img src="https://ww1.sinaimg.cn/large/006tNc79gw1fbp3ml911jj30km03ujrp.jpg" alt=""></p>
+<p>最近群友提供了一个方法，特此弄一个中文教程；</p>
+<p>原文地址：<a href="https://hencolle.com/2016/10/16/baidu_exporter/" target="_blank" rel="external">https://hencolle.com/2016/10/16/baidu_exporter/</a></p>
+<p><strong>注意：该方法只适用于 通过 crx 文件安装的扩展（将crx文件拖入chrome扩展程序界面）</strong></p>
+<h4 id="首先下载一个描述文件："><a href="#首先下载一个描述文件：" class="headerlink" title="首先下载一个描述文件："></a>首先下载一个描述文件：</h4><p>Github地址：</p>
+<p><a href="">https://gist.github.com/Explorare/be3dd598289252698cd37bca04abd0fe#file-com-google-chrome-mobileconfig</a></p>
+<h4 id="打开-chrome的-扩展程序-界面，复制-扩展的-ID。"><a href="#打开-chrome的-扩展程序-界面，复制-扩展的-ID。" class="headerlink" title="打开 chrome的 扩展程序 界面，复制 扩展的 ID。"></a>打开 chrome的 扩展程序 界面，复制 扩展的 ID。</h4><p><img src="https://ww1.sinaimg.cn/large/006tNc79gw1fbp3lyt8b9j30kl04ht99.jpg" alt=""></p>
+<h4 id="用文本编辑器打开下载好的com-google-Chrome-mobileconfig找到如图所示位置："><a href="#用文本编辑器打开下载好的com-google-Chrome-mobileconfig找到如图所示位置：" class="headerlink" title="用文本编辑器打开下载好的com.google.Chrome.mobileconfig找到如图所示位置："></a>用文本编辑器打开下载好的com.google.Chrome.mobileconfig找到如图所示位置：</h4><p><img src="https://ww1.sinaimg.cn/large/006tNc79gw1fbp3m4kmxyj30r90o8gps.jpg" alt=""></p>
+<h4 id="这里的-三个-中分别对应单个扩展的ID，如果只需要一个的话，可以吧多余的两个删掉，将其中的一个标签中的值替换为第二步复制过来的-ID。编辑完后保存。如图："><a href="#这里的-三个-中分别对应单个扩展的ID，如果只需要一个的话，可以吧多余的两个删掉，将其中的一个标签中的值替换为第二步复制过来的-ID。编辑完后保存。如图：" class="headerlink" title="这里的 三个  中分别对应单个扩展的ID，如果只需要一个的话，可以吧多余的两个删掉，将其中的一个标签中的值替换为第二步复制过来的 ID。编辑完后保存。如图："></a>这里的 三个 <string></string> 中分别对应单个扩展的ID，如果只需要一个的话，可以吧多余的两个删掉，将其中的一个标签中的值替换为第二步复制过来的 ID。编辑完后保存。如图：</h4><p><img src="https://ww1.sinaimg.cn/large/006tNc79gw1fbp3m38ktfj30zk0mwn52.jpg" alt=""></p>
+<h4 id="双击打开第三步编辑好的描述文件，按照弹出的提示点击-继续-安装（输入电脑密码），安装结束后重启浏览器，就可以勾选这个扩展了，并且以后重启浏览器也不会有停用的提示了！"><a href="#双击打开第三步编辑好的描述文件，按照弹出的提示点击-继续-安装（输入电脑密码），安装结束后重启浏览器，就可以勾选这个扩展了，并且以后重启浏览器也不会有停用的提示了！" class="headerlink" title="双击打开第三步编辑好的描述文件，按照弹出的提示点击 继续-安装（输入电脑密码），安装结束后重启浏览器，就可以勾选这个扩展了，并且以后重启浏览器也不会有停用的提示了！"></a>双击打开第三步编辑好的描述文件，按照弹出的提示点击 继续-安装（输入电脑密码），安装结束后重启浏览器，就可以勾选这个扩展了，并且以后重启浏览器也不会有停用的提示了！</h4>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chrome/">chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crx/">crx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/whitelist/">whitelist</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-react-native-error-on-osx-10-11" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">

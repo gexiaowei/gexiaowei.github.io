@@ -3,30 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>React-Native在OS X 10.11报错的问题 | Xiaowei.Ge</title>
+  <title>Tag: whitelist | Xiaowei.Ge</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言
-昨天晚上升级了Mac系统，结果发现在重新新建一个React-Native程序的时候竟然报错了
-
-TypeError: Cannot read property &amp;#39;root&amp;#39; of null
-    at /Users/isasportas/Projects/canalplus/iOS/RemoteX1/node_modules/react-native/packager/re">
-<meta property="og:type" content="article">
-<meta property="og:title" content="React-Native在OS X 10.11报错的问题">
-<meta property="og:url" content="http://gexiaowei.me/2015/10/28/react-native-error-on-osx-10-11/index.html">
+  <meta name="description" content="爱前端，爱Javascript，最爱我的小玉...">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Xiaowei.Ge">
+<meta property="og:url" content="http://gexiaowei.me/tags/whitelist/index.html">
 <meta property="og:site_name" content="Xiaowei.Ge">
-<meta property="og:description" content="前言
-昨天晚上升级了Mac系统，结果发现在重新新建一个React-Native程序的时候竟然报错了
-
-TypeError: Cannot read property &amp;#39;root&amp;#39; of null
-    at /Users/isasportas/Projects/canalplus/iOS/RemoteX1/node_modules/react-native/packager/re">
-<meta property="og:updated_time" content="2015-10-28T10:51:25.000Z">
+<meta property="og:description" content="爱前端，爱Javascript，最爱我的小玉...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="React-Native在OS X 10.11报错的问题">
-<meta name="twitter:description" content="前言
-昨天晚上升级了Mac系统，结果发现在重新新建一个React-Native程序的时候竟然报错了
-
-TypeError: Cannot read property &amp;#39;root&amp;#39; of null
-    at /Users/isasportas/Projects/canalplus/iOS/RemoteX1/node_modules/react-native/packager/re">
+<meta name="twitter:title" content="Xiaowei.Ge">
+<meta name="twitter:description" content="爱前端，爱Javascript，最爱我的小玉...">
   
     <link rel="alternative" href="/atom.xml" title="Xiaowei.Ge" type="application/atom+xml">
   
@@ -141,95 +128,53 @@ TypeError: Cannot read property &amp;#39;root&amp;#39; of null
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-react-native-error-on-osx-10-11" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
   
-    <div class="article-meta">
-      <a href="/2015/10/28/react-native-error-on-osx-10-11/" class="article-date">
-  	<time datetime="2015-10-28T10:47:14.000Z" itemprop="datePublished">2015-10-28</time>
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2017" class="archive-year">2017</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2017/01/13/install-third-part-crx-in-mac/" class="archive-article-date">
+  	<time datetime="2017-01-13T08:55:20.000Z" itemprop="datePublished">Jan 13</time>
 </a>
-    </div>
+        </div>
+    	 
   
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      React-Native在OS X 10.11报错的问题
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2017/01/13/install-third-part-crx-in-mac/">将非官方扩展程序加入chrome的白名单</a>
     </h1>
   
 
-      </header>
-      
-      <div class="article-info article-info-post">
-        
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/React-Native/">React-Native</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/chrome/">chrome</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/crx/">crx</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/whitelist/">whitelist</a></li></ul>
 	</div>
 
-        
+          
 
+        </div>
         <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>昨天晚上升级了Mac系统，结果发现在重新新建一个React-Native程序的时候竟然报错了</p>
-</blockquote>
-<p><code>TypeError: Cannot read property &#39;root&#39; of null
-    at /Users/isasportas/Projects/canalplus/iOS/RemoteX1/node_modules/react-native/packager/react-packager/src/DependencyResolver/crawlers/index.js:16:84
-    at tryCallOne (/Users/isasportas/Projects/canalplus/iOS/RemoteX1/node_modules/react-native/node_modules/promise/lib/core.js:37:12)
-    at /Users/isasportas/Projects/canalplus/iOS/RemoteX1/node_modules/react-native/node_modules/promise/lib/core.js:103:15
-    at flush (/Users/isasportas/Projects/canalplus/iOS/RemoteX1/node_modules/react-native/node_modules/promise/node_modules/asap/raw.js:50:29)
-    at process._tickCallback (node.js:355:11)</code></p>
-<a id="more"></a>
-<h2 id="产生原因"><a href="#产生原因" class="headerlink" title="产生原因"></a>产生原因</h2><blockquote>
-<p>原来是由于brew安装的watchman的版本是3.1.0，但是改版本不支持mac的OS X 10.11系统</p>
-</blockquote>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><blockquote>
-<p>卸载原来的watchman</p>
-<p><code>brew uninstall watchman</code></p>
-<p>安装最新版本的watchman</p>
-<p><code>brew install watchman -HEAD</code></p>
-</blockquote>
-
-      
-    </div>
-    
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/01/13/install-third-part-crx-in-mac/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          将非官方扩展程序加入chrome的白名单
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/10/27/node-plugin-for-web-develope/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">前端开发中node插件(不定期更新)</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-
-
-
-
+    
 
 </div>
       <footer id="footer">
@@ -255,9 +200,9 @@ TypeError: Cannot read property &amp;#39;root&amp;#39; of null
 		mathjax: true,
 		animate: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false
 	}
