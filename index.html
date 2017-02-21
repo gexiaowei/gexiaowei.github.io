@@ -130,6 +130,84 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-regex-annotation" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/21/regex-annotation/" class="article-date">
+  	<time datetime="2017-02-21T10:22:25.000Z" itemprop="datePublished">2017-02-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/21/regex-annotation/">JavaScript正则表达式应用 移除注释</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##匹配velocity注释</p>
+<ul>
+<li>单行注释 /##[^\r\n]*/g</li>
+<li>多行注释 /#<em>[\s\S]</em>?*#/g</li>
+</ul>
+<p>##匹配HTML注释</p>
+<ul>
+<li>匹配HTML注释保护IE条件注释 /<!--(?!\s*\[if)[\s\S]*?-->/g</li>
+</ul>
+<p>##匹配CSS</p>
+<ul>
+<li><p>匹配CSS 标签 /&lt;(style)[\w\W]*?\1/g</p>
+</li>
+<li><p>匹配CSS 注释 /\/<em>[\s\S]</em>?*\//g</p>
+</li>
+<li><p>匹配JavaScript</p>
+</li>
+<li><p>匹配JavaScript标签 /&lt;(script)[\w\W]*?\1&gt;/g</p>
+</li>
+<li><p>匹配单行注释 /(^|\b|\s|[^’”:\w\d])(\/\/[^\r\n]*)/g</p>
+</li>
+<li><p>匹配多行注释 /\/<em>[\s\S]</em>?*\//g</p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则/">正则</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/注释/">注释</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-blue-tooth-dropped-frame-on-mac" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
