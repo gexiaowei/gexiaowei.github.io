@@ -156,17 +156,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##匹配velocity注释</p>
-<ul>
+        <h2 id="匹配velocity注释"><a href="#匹配velocity注释" class="headerlink" title="匹配velocity注释"></a>匹配velocity注释</h2><ul>
 <li>单行注释 /##[^\r\n]*/g</li>
 <li>多行注释 /#<em>[\s\S]</em>?*#/g</li>
 </ul>
-<p>##匹配HTML注释</p>
-<ul>
+<h2 id="匹配HTML注释"><a href="#匹配HTML注释" class="headerlink" title="匹配HTML注释"></a>匹配HTML注释</h2><ul>
 <li>匹配HTML注释保护IE条件注释 /<!--(?!\s*\[if)[\s\S]*?-->/g</li>
 </ul>
-<p>##匹配CSS</p>
-<ul>
+<h2 id="匹配CSS"><a href="#匹配CSS" class="headerlink" title="匹配CSS"></a>匹配CSS</h2><ul>
 <li><p>匹配CSS 标签 /&lt;(style)[\w\W]*?\1/g</p>
 </li>
 <li><p>匹配CSS 注释 /\/<em>[\s\S]</em>?*\//g</p>
