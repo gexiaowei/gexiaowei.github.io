@@ -3,60 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JavaScript正则表达式应用 移除注释 | Xiaowei.Ge</title>
+  <title>Redis on Mac | Xiaowei.Ge</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="匹配velocity注释
-单行注释 /##[^\r\n]*/g
-多行注释 /#[\s\S]?*#/g
-
-匹配HTML注释
-匹配HTML注释保护IE条件注释 //g
-
-匹配CSS
-匹配CSS 标签 /&amp;lt;(style)[\w\W]*?\1/g
-
-匹配CSS 注释 /\/[\s\S]?*\//g
-
-匹配JavaScript
-
-匹配JavaScript标签 /&amp;lt;(script)[\w\W]*?">
+  <meta name="description" content="Install with Homebrewbrew install redis
+Set up launchctl to auto start redis
+$ ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+/usr/local/opt/redis/ is a symlink to /usr/local/Cellar/redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript正则表达式应用 移除注释">
-<meta property="og:url" content="http://gexiaowei.me/2017/02/21/regex-annotation/index.html">
+<meta property="og:title" content="Redis on Mac">
+<meta property="og:url" content="http://gexiaowei.me/2017/02/22/redis-on-mac/index.html">
 <meta property="og:site_name" content="Xiaowei.Ge">
-<meta property="og:description" content="匹配velocity注释
-单行注释 /##[^\r\n]*/g
-多行注释 /#[\s\S]?*#/g
-
-匹配HTML注释
-匹配HTML注释保护IE条件注释 //g
-
-匹配CSS
-匹配CSS 标签 /&amp;lt;(style)[\w\W]*?\1/g
-
-匹配CSS 注释 /\/[\s\S]?*\//g
-
-匹配JavaScript
-
-匹配JavaScript标签 /&amp;lt;(script)[\w\W]*?">
-<meta property="og:updated_time" content="2017-02-21T10:26:53.000Z">
+<meta property="og:description" content="Install with Homebrewbrew install redis
+Set up launchctl to auto start redis
+$ ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+/usr/local/opt/redis/ is a symlink to /usr/local/Cellar/redis">
+<meta property="og:updated_time" content="2017-02-22T08:18:12.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript正则表达式应用 移除注释">
-<meta name="twitter:description" content="匹配velocity注释
-单行注释 /##[^\r\n]*/g
-多行注释 /#[\s\S]?*#/g
-
-匹配HTML注释
-匹配HTML注释保护IE条件注释 //g
-
-匹配CSS
-匹配CSS 标签 /&amp;lt;(style)[\w\W]*?\1/g
-
-匹配CSS 注释 /\/[\s\S]?*\//g
-
-匹配JavaScript
-
-匹配JavaScript标签 /&amp;lt;(script)[\w\W]*?">
+<meta name="twitter:title" content="Redis on Mac">
+<meta name="twitter:description" content="Install with Homebrewbrew install redis
+Set up launchctl to auto start redis
+$ ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+/usr/local/opt/redis/ is a symlink to /usr/local/Cellar/redis">
   
     <link rel="alternative" href="/atom.xml" title="Xiaowei.Ge" type="application/atom+xml">
   
@@ -171,11 +138,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-regex-annotation" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-redis-on-mac" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2017/02/21/regex-annotation/" class="article-date">
-  	<time datetime="2017-02-21T10:22:25.000Z" itemprop="datePublished">2017-02-21</time>
+      <a href="/2017/02/22/redis-on-mac/" class="article-date">
+  	<time datetime="2017-02-22T08:17:03.000Z" itemprop="datePublished">2017-02-22</time>
 </a>
     </div>
   
@@ -188,7 +155,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JavaScript正则表达式应用 移除注释
+      Redis on Mac
     </h1>
   
 
@@ -197,7 +164,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则/">正则</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/注释/">注释</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
 	</div>
 
         
@@ -208,27 +175,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="匹配velocity注释"><a href="#匹配velocity注释" class="headerlink" title="匹配velocity注释"></a>匹配velocity注释</h2><ul>
-<li>单行注释 /##[^\r\n]*/g</li>
-<li>多行注释 /#<em>[\s\S]</em>?*#/g</li>
-</ul>
-<h2 id="匹配HTML注释"><a href="#匹配HTML注释" class="headerlink" title="匹配HTML注释"></a>匹配HTML注释</h2><ul>
-<li>匹配HTML注释保护IE条件注释 /<!--(?!\s*\[if)[\s\S]*?-->/g</li>
-</ul>
-<h2 id="匹配CSS"><a href="#匹配CSS" class="headerlink" title="匹配CSS"></a>匹配CSS</h2><ul>
-<li><p>匹配CSS 标签 /&lt;(style)[\w\W]*?\1/g</p>
-</li>
-<li><p>匹配CSS 注释 /\/<em>[\s\S]</em>?*\//g</p>
-</li>
-<li><p>匹配JavaScript</p>
-</li>
-<li><p>匹配JavaScript标签 /&lt;(script)[\w\W]*?\1&gt;/g</p>
-</li>
-<li><p>匹配单行注释 /(^|\b|\s|[^’”:\w\d])(\/\/[^\r\n]*)/g</p>
-</li>
-<li><p>匹配多行注释 /\/<em>[\s\S]</em>?*\//g</p>
-</li>
-</ul>
+        <h3 id="Install-with-Homebrew"><a href="#Install-with-Homebrew" class="headerlink" title="Install with Homebrew"></a>Install with Homebrew</h3><pre><code>brew install redis
+</code></pre><p>Set up launchctl to auto start <code>redis</code></p>
+<pre><code>$ ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+</code></pre><p><code>/usr/local/opt/redis/</code> is a symlink to <code>/usr/local/Cellar/redis/x.y.z</code> (e.g., <code>2.8.7</code>)</p>
+<p>You can use launchctl to start and stop <code>redis</code></p>
+<pre><code>$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+$ launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+</code></pre><p>You can also more conveniently use <code>brew</code> to start, stop, and verify service status</p>
+<pre><code>$ brew services list | grep redis
+$ brew services start redis
+$ brew services stop redis
+</code></pre><h4 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h4><p>The default plist provided by homebrew stores the redis configuration at <code>/usr/local/etc/redis.conf</code>.</p>
+<p>For more about <code>launchctl</code> see:</p>
+<p><a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/launchctl.1.html#//apple_ref/doc/man/1/launchctl" target="_blank" rel="external">https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/launchctl.1.html#//apple_ref/doc/man/1/launchctl</a></p>
+<p><a href="http://launchd.info/" target="_blank" rel="external">http://launchd.info/</a></p>
 
       
     </div>
@@ -238,18 +199,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/02/22/redis-on-mac/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Redis on Mac
-        
-      </div>
-    </a>
   
-  
-    <a href="/2017/01/15/blue-tooth-dropped-frame-on-mac/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Mac蓝牙掉帧的问题</div>
+    <a href="/2017/02/21/regex-annotation/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript正则表达式应用 移除注释</div>
       <strong class="article-nav-caption">></strong>
     </a>
   

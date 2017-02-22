@@ -130,6 +130,75 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-redis-on-mac" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/02/22/redis-on-mac/" class="article-date">
+  	<time datetime="2017-02-22T08:17:03.000Z" itemprop="datePublished">2017-02-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/22/redis-on-mac/">Redis on Mac</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Install-with-Homebrew"><a href="#Install-with-Homebrew" class="headerlink" title="Install with Homebrew"></a>Install with Homebrew</h3><pre><code>brew install redis
+</code></pre><p>Set up launchctl to auto start <code>redis</code></p>
+<pre><code>$ ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
+</code></pre><p><code>/usr/local/opt/redis/</code> is a symlink to <code>/usr/local/Cellar/redis/x.y.z</code> (e.g., <code>2.8.7</code>)</p>
+<p>You can use launchctl to start and stop <code>redis</code></p>
+<pre><code>$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+$ launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+</code></pre><p>You can also more conveniently use <code>brew</code> to start, stop, and verify service status</p>
+<pre><code>$ brew services list | grep redis
+$ brew services start redis
+$ brew services stop redis
+</code></pre><h4 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h4><p>The default plist provided by homebrew stores the redis configuration at <code>/usr/local/etc/redis.conf</code>.</p>
+<p>For more about <code>launchctl</code> see:</p>
+<p><a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/launchctl.1.html#//apple_ref/doc/man/1/launchctl" target="_blank" rel="external">https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/launchctl.1.html#//apple_ref/doc/man/1/launchctl</a></p>
+<p><a href="http://launchd.info/" target="_blank" rel="external">http://launchd.info/</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mac/">mac</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-regex-annotation" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
