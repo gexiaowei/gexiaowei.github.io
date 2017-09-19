@@ -130,6 +130,128 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-alfred-allow-read-contacts-forever" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/19/alfred-allow-read-contacts-forever/" class="article-date">
+  	<time datetime="2017-09-19T03:25:03.000Z" itemprop="datePublished">2017-09-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/19/alfred-allow-read-contacts-forever/">alfred 每次开机运行后都提示是否允许访问通讯录</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>sudo codesign -f -d -s - /Applications/Alfred\ 3.app/Contents/Frameworks/Alfred\ Framework.framework/Versions/A/Alfred\ Framework</code></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/alfred/">alfred</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-install-zsh-and-oh-my-zsh" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/09/19/install-zsh-and-oh-my-zsh/" class="article-date">
+  	<time datetime="2017-09-19T03:08:12.000Z" itemprop="datePublished">2017-09-19</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/19/install-zsh-and-oh-my-zsh/">Install zsh and oh my zsh</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="检查是否安装zsh"><a href="#检查是否安装zsh" class="headerlink" title="检查是否安装zsh"></a>检查是否安装zsh</h3><p><code>cat /etc/shells</code></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/bin/</span>sh</div><div class="line"><span class="regexp">/bin/</span>bash</div><div class="line"><span class="regexp">/sbin/</span>nologin</div><div class="line"><span class="regexp">/bin/</span>dash</div><div class="line"><span class="regexp">/bin/</span>tcsh</div><div class="line"><span class="regexp">/bin/</span>csh</div></pre></td></tr></table></figure>
+<p>显示没有安装zsh</p>
+<h3 id="安装zsh包"><a href="#安装zsh包" class="headerlink" title="安装zsh包"></a>安装zsh包</h3><p><code>yum -y install zsh</code></p>
+<p>再次检查是否安装zsh</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/bin/</span>sh</div><div class="line"><span class="regexp">/bin/</span>bash</div><div class="line"><span class="regexp">/sbin/</span>nologin</div><div class="line"><span class="regexp">/bin/</span>dash</div><div class="line"><span class="regexp">/bin/</span>tcsh</div><div class="line"><span class="regexp">/bin/</span>csh</div><div class="line"><span class="regexp">/bin/</span>zsh</div></pre></td></tr></table></figure>
+<p>显示已经安装zsh</p>
+<h3 id="切换shell至zsh"><a href="#切换shell至zsh" class="headerlink" title="切换shell至zsh"></a>切换shell至zsh</h3><p><code>chsh -s /bin/zsh</code></p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Changing <span class="built_in">shell</span> <span class="keyword">for</span> root.</div><div class="line"><span class="built_in">Shell</span> changed.</div></pre></td></tr></table></figure>
+<h3 id="重启连接检查是否切换到zsh"><a href="#重启连接检查是否切换到zsh" class="headerlink" title="重启连接检查是否切换到zsh"></a>重启连接检查是否切换到zsh</h3><p><code>echo $SHELL</code></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/bin/</span>zsh</div></pre></td></tr></table></figure>
+<p>已经切换到zsh</p>
+<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh my zsh"></a>安装oh my zsh</h3><p>官网：<a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a></p>
+<p><code>sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code></p>
+<h3 id="修改oh-my-zsh"><a href="#修改oh-my-zsh" class="headerlink" title="修改oh my zsh"></a>修改oh my zsh</h3><p><code>vi ~/.zshrc</code></p>
+<p>修改<code>ZSH_THEME</code>字段即可，修改完成后</p>
+<p><code>source ~/.zshrc</code></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-redis-on-mac" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -649,127 +771,10 @@ $ brew services stop redis
 
 
   
-    <article id="post-wechat-bowser-image-vague" class="article article-type-post" itemscope itemprop="blogPost">
   
-    <div class="article-meta">
-      <a href="/2015/07/23/wechat-bowser-image-vague/" class="article-date">
-  	<time datetime="2015-07-23T10:03:57.000Z" itemprop="datePublished">2015-07-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/23/wechat-bowser-image-vague/">微信浏览器查看HTML的图片模糊的问题</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="微信浏览器查看HTML的图片模糊的问题"><a href="#微信浏览器查看HTML的图片模糊的问题" class="headerlink" title="微信浏览器查看HTML的图片模糊的问题"></a>微信浏览器查看HTML的图片模糊的问题</h1><p>今天在微信浏览器查看HTML图片的时候发现图片很模糊，然后在浏览器和内置webview查看的时候却正常</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/23/wechat-bowser-image-vague/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-jade-introduce" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/07/23/jade-introduce/" class="article-date">
-  	<time datetime="2015-07-23T07:21:59.000Z" itemprop="datePublished">2015-07-23</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/23/jade-introduce/">Jade - 模板引擎</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Jade-模板引擎"><a href="#Jade-模板引擎" class="headerlink" title="Jade - 模板引擎"></a>Jade - 模板引擎</h1><p>Jade 是一个高性能的模板引擎，它深受 <a href="http://haml-lang.com">Haml</a> 影响，它是用 JavaScript 实现的, 并且可以供 <a href="http://nodejs.org">Node</a> 使用.</p>
-<p>翻译: <a href="http://jser.me">草依山</a> 等</p>
-<h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>从 Jade <code>v0.31.0</code> 开始放弃了对于 <code>&lt;script&gt;</code> 和 <code>&lt;style&gt;</code> 标签的平文本支持. 这个问题你可以在 <code>&lt;script&gt; &lt;style&gt;</code> 标签后加上 <code>.</code> 来解决.</p>
-<p>希望这一点能让 Jade 对新手更友好, 同时也不影响到 Jade 本身的能力或者导致过度冗长.</p>
-<p>如果你有大量的文件需要转换你可以用下 <a href="https://github.com/ForbesLindesay/fix-jade">fix-jade</a> 尝试自动完成这个过程.</p>
-<h2 id="Test-drive"><a href="#Test-drive" class="headerlink" title="Test drive"></a>Test drive</h2><p>你可以在网上<a href="http://naltatis.github.com/jade-syntax-docs">试玩 Jade</a>.</p>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Jade/">Jade</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2015/07/23/jade-introduce/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
   
 </div>
       <footer id="footer">

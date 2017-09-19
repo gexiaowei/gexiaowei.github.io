@@ -3,19 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>前端开发中node插件(不定期更新) | Xiaowei.Ge</title>
+  <title>Install zsh and oh my zsh | Xiaowei.Ge</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 这里会不定期的更新一些在开发工作中运用到的比较实用性的node插件">
-<meta name="keywords" content="node,plugin">
+  <meta name="description" content="检查是否安装zshcat /etc/shells 123456/bin/sh/bin/bash/sbin/nologin/bin/dash/bin/tcsh/bin/csh 显示没有安装zsh 安装zsh包yum -y install zsh 再次检查是否安装zsh 1234567/bin/sh/bin/bash/sbin/nologin/bin/dash/bin/tcsh/bin/csh/bin">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端开发中node插件(不定期更新)">
-<meta property="og:url" content="http://gexiaowei.me/2015/10/27/node-plugin-for-web-develope/index.html">
+<meta property="og:title" content="Install zsh and oh my zsh">
+<meta property="og:url" content="http://gexiaowei.me/2017/09/19/install-zsh-and-oh-my-zsh/index.html">
 <meta property="og:site_name" content="Xiaowei.Ge">
-<meta property="og:description" content="前言 这里会不定期的更新一些在开发工作中运用到的比较实用性的node插件">
-<meta property="og:updated_time" content="2015-10-26T17:51:27.000Z">
+<meta property="og:description" content="检查是否安装zshcat /etc/shells 123456/bin/sh/bin/bash/sbin/nologin/bin/dash/bin/tcsh/bin/csh 显示没有安装zsh 安装zsh包yum -y install zsh 再次检查是否安装zsh 1234567/bin/sh/bin/bash/sbin/nologin/bin/dash/bin/tcsh/bin/csh/bin">
+<meta property="og:updated_time" content="2017-09-19T03:23:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端开发中node插件(不定期更新)">
-<meta name="twitter:description" content="前言 这里会不定期的更新一些在开发工作中运用到的比较实用性的node插件">
+<meta name="twitter:title" content="Install zsh and oh my zsh">
+<meta name="twitter:description" content="检查是否安装zshcat /etc/shells 123456/bin/sh/bin/bash/sbin/nologin/bin/dash/bin/tcsh/bin/csh 显示没有安装zsh 安装zsh包yum -y install zsh 再次检查是否安装zsh 1234567/bin/sh/bin/bash/sbin/nologin/bin/dash/bin/tcsh/bin/csh/bin">
   
     <link rel="alternative" href="/atom.xml" title="Xiaowei.Ge" type="application/atom+xml">
   
@@ -130,11 +129,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-node-plugin-for-web-develope" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-install-zsh-and-oh-my-zsh" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/10/27/node-plugin-for-web-develope/" class="article-date">
-  	<time datetime="2015-10-26T17:45:22.000Z" itemprop="datePublished">2015-10-27</time>
+      <a href="/2017/09/19/install-zsh-and-oh-my-zsh/" class="article-date">
+  	<time datetime="2017-09-19T03:08:12.000Z" itemprop="datePublished">2017-09-19</time>
 </a>
     </div>
   
@@ -147,7 +146,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      前端开发中node插件(不定期更新)
+      Install zsh and oh my zsh
     </h1>
   
 
@@ -155,10 +154,6 @@
       
       <div class="article-info article-info-post">
         
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/plugin/">plugin</a></li></ul>
-	</div>
-
         
 
         <div class="clearfix"></div>
@@ -167,22 +162,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>这里会不定期的更新一些在开发工作中运用到的比较实用性的node插件</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="静态服务器"><a href="#静态服务器" class="headerlink" title="静态服务器"></a>静态服务器</h2><h3 id="httpster"><a href="#httpster" class="headerlink" title="httpster"></a><a href="https://www.npmjs.com/package/httpster" target="_blank" rel="external">httpster</a></h3><p>一个简单的http静态服务器</p>
-<h4 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h4><p><code>npm -g install httpster</code></p>
-<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p><code>httpster -p &lt;port&gt; -d &lt;directory&gt;</code></p>
-<p>可以指定本地端口和需要访问的本地路径</p>
-<p><code>port</code>和<code>directory</code>为可选选项</p>
-<p><code>port</code>：默认3333</p>
-<p><code>directory</code>为控制台的当前路径</p>
-<h3 id="browser-sync"><a href="#browser-sync" class="headerlink" title="browser-sync"></a><a href="https://www.npmjs.com/package/browser-sync" target="_blank" rel="external">browser-sync</a></h3><p>同步更新项目的一个静态http服务器，当项目有指定文件更改后自动刷新网页</p>
-<h4 id="安装方法-1"><a href="#安装方法-1" class="headerlink" title="安装方法"></a>安装方法</h4><p><code>npm -g install browser-sync</code></p>
-<h4 id="使用方法-1"><a href="#使用方法-1" class="headerlink" title="使用方法"></a>使用方法</h4><p><code>browser-sync start --server --files &quot;**/*.*&quot;</code></p>
-<p><code>--files</code> 需要监听的文件</p>
-<p>本地端口默认为3000</p>
+        <h3 id="检查是否安装zsh"><a href="#检查是否安装zsh" class="headerlink" title="检查是否安装zsh"></a>检查是否安装zsh</h3><p><code>cat /etc/shells</code></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/bin/</span>sh</div><div class="line"><span class="regexp">/bin/</span>bash</div><div class="line"><span class="regexp">/sbin/</span>nologin</div><div class="line"><span class="regexp">/bin/</span>dash</div><div class="line"><span class="regexp">/bin/</span>tcsh</div><div class="line"><span class="regexp">/bin/</span>csh</div></pre></td></tr></table></figure>
+<p>显示没有安装zsh</p>
+<h3 id="安装zsh包"><a href="#安装zsh包" class="headerlink" title="安装zsh包"></a>安装zsh包</h3><p><code>yum -y install zsh</code></p>
+<p>再次检查是否安装zsh</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/bin/</span>sh</div><div class="line"><span class="regexp">/bin/</span>bash</div><div class="line"><span class="regexp">/sbin/</span>nologin</div><div class="line"><span class="regexp">/bin/</span>dash</div><div class="line"><span class="regexp">/bin/</span>tcsh</div><div class="line"><span class="regexp">/bin/</span>csh</div><div class="line"><span class="regexp">/bin/</span>zsh</div></pre></td></tr></table></figure>
+<p>显示已经安装zsh</p>
+<h3 id="切换shell至zsh"><a href="#切换shell至zsh" class="headerlink" title="切换shell至zsh"></a>切换shell至zsh</h3><p><code>chsh -s /bin/zsh</code></p>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Changing <span class="built_in">shell</span> <span class="keyword">for</span> root.</div><div class="line"><span class="built_in">Shell</span> changed.</div></pre></td></tr></table></figure>
+<h3 id="重启连接检查是否切换到zsh"><a href="#重启连接检查是否切换到zsh" class="headerlink" title="重启连接检查是否切换到zsh"></a>重启连接检查是否切换到zsh</h3><p><code>echo $SHELL</code></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/bin/</span>zsh</div></pre></td></tr></table></figure>
+<p>已经切换到zsh</p>
+<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh my zsh"></a>安装oh my zsh</h3><p>官网：<a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a></p>
+<p><code>sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code></p>
+<h3 id="修改oh-my-zsh"><a href="#修改oh-my-zsh" class="headerlink" title="修改oh my zsh"></a>修改oh my zsh</h3><p><code>vi ~/.zshrc</code></p>
+<p>修改<code>ZSH_THEME</code>字段即可，修改完成后</p>
+<p><code>source ~/.zshrc</code></p>
 
       
     </div>
@@ -192,18 +188,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/10/28/react-native-error-on-osx-10-11/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/09/19/alfred-allow-read-contacts-forever/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          React-Native在OS X 10.11报错的问题
+          alfred 每次开机运行后都提示是否允许访问通讯录
         
       </div>
     </a>
   
   
-    <a href="/2015/10/27/grunt-simple-guide/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Grunt使用指南</div>
+    <a href="/2017/02/22/redis-on-mac/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Redis on Mac</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
