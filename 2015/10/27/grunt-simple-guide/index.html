@@ -8,20 +8,18 @@
   <link rel="dns-prefetch" href="https://referenceerror.xyz">
   <title>Grunt使用指南 | Xiaowei.Ge</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前言 grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。  在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件">
+  <meta name="description" content="前言 grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。  在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列">
 <meta name="keywords" content="guide,grunt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Grunt使用指南">
 <meta property="og:url" content="https://referenceerror.xyz/2015/10/27/grunt-simple-guide/index.html">
 <meta property="og:site_name" content="Xiaowei.Ge">
-<meta property="og:description" content="前言 grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。  在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件">
+<meta property="og:description" content="前言 grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。  在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://www.gruntjs.net/img/grunt-logo.png">
-<meta property="og:updated_time" content="2015-10-26T17:24:01.000Z">
+<meta property="og:updated_time" content="2018-07-04T07:31:25.339Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Grunt使用指南">
-<meta name="twitter:description" content="前言 grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。  在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件">
-<meta name="twitter:image" content="http://www.gruntjs.net/img/grunt-logo.png">
+<meta name="twitter:description" content="前言 grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。  在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列">
   
     <link rel="alternative" href="/atom.xml" title="Xiaowei.Ge" type="application/atom+xml">
   
@@ -196,15 +194,14 @@ ga('send', 'pageview');
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://www.gruntjs.net/img/grunt-logo.png" alt="logo"></p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
 <p>grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。</p>
 </blockquote>
 <p>在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列表找到用于发布的sftp的插件，而在grunt中找到了。可见grunt的插件生态非常完整，这是grunt的一个优势（现在gulp已经存在了sftp插件）。</p>
 <p>ps:在gulp的使用指南中,我们简单的介绍了node和npm一些使用方法，这里就不多做介绍了。</p>
 <a id="more"></a>
 <h2 id="安装Grunt"><a href="#安装Grunt" class="headerlink" title="安装Grunt"></a>安装Grunt</h2><blockquote>
-<p>在<a href="http://www.gruntjs.net/" target="_blank" rel="external">gruntjs官网</a>下有详细介绍grunt的具体使用方法和API,可以访问查找。</p>
+<p>在<a href="http://www.gruntjs.net/" target="_blank" rel="noopener">gruntjs官网</a>下有详细介绍grunt的具体使用方法和API,可以访问查找。</p>
 </blockquote>
 <h4 id="全局安装-cli"><a href="#全局安装-cli" class="headerlink" title="全局安装 cli"></a>全局安装 cli</h4><p><code>npm install -g grunt-cli</code><br>允许我们使用grunt命令</p>
 <h4 id="在项目根目录下创建一个名为-Gruntfile-js-的文件："><a href="#在项目根目录下创建一个名为-Gruntfile-js-的文件：" class="headerlink" title="在项目根目录下创建一个名为 Gruntfile.js 的文件："></a>在项目根目录下创建一个名为 Gruntfile.js 的文件：</h4><pre><code>module.exports = function(grunt) {
@@ -232,15 +229,15 @@ ga('send', 'pageview');
 <h4 id="运行-grunt："><a href="#运行-grunt：" class="headerlink" title="运行 grunt："></a>运行 grunt：</h4><p><code>grunt &lt;task-name&gt;</code></p>
 <p><strong>ps:task-name默认为default</strong></p>
 <h2 id="常用的grunt插件包"><a href="#常用的grunt插件包" class="headerlink" title="常用的grunt插件包"></a>常用的grunt插件包</h2><blockquote>
-<p>在这里会介绍一些常用的插件，它们的地址和基本用法，在他们各自的主页上有各自的具体参数和使用方式，同时可以访问<a href="http://www.gruntjs.net/plugins" target="_blank" rel="external">grunt插件列表</a>查找更多插件（<strong>grunt-contrib开头的插件是由官方维护</strong>）。</p>
+<p>在这里会介绍一些常用的插件，它们的地址和基本用法，在他们各自的主页上有各自的具体参数和使用方式，同时可以访问<a href="http://www.gruntjs.net/plugins" target="_blank" rel="noopener">grunt插件列表</a>查找更多插件（<strong>grunt-contrib开头的插件是由官方维护</strong>）。</p>
 </blockquote>
-<h4 id="grunt-contrib-clean"><a href="#grunt-contrib-clean" class="headerlink" title="grunt-contrib-clean"></a><a href="https://www.npmjs.com/package/grunt-contrib-clean" target="_blank" rel="external">grunt-contrib-clean</a></h4><p>删除文件夹以及指定的文件</p>
+<h4 id="grunt-contrib-clean"><a href="#grunt-contrib-clean" class="headerlink" title="grunt-contrib-clean"></a><a href="https://www.npmjs.com/package/grunt-contrib-clean" target="_blank" rel="noopener">grunt-contrib-clean</a></h4><p>删除文件夹以及指定的文件</p>
 <pre><code>clean: {
       target: {
         src: [&quot;path/to/dir/one&quot;, &quot;path/to/dir/two&quot;]
       }
 }
-</code></pre><h4 id="grunt-contrib-imagemin"><a href="#grunt-contrib-imagemin" class="headerlink" title="grunt-contrib-imagemin"></a><a href="https://www.npmjs.com/package/grunt-contrib-imagemin" target="_blank" rel="external">grunt-contrib-imagemin</a></h4><p>压缩图片文件</p>
+</code></pre><h4 id="grunt-contrib-imagemin"><a href="#grunt-contrib-imagemin" class="headerlink" title="grunt-contrib-imagemin"></a><a href="https://www.npmjs.com/package/grunt-contrib-imagemin" target="_blank" rel="noopener">grunt-contrib-imagemin</a></h4><p>压缩图片文件</p>
 <pre><code>imagemin: {                                // Task 
     static: {                              // Target 
           options: {                           // Target options 
@@ -264,7 +261,7 @@ ga('send', 'pageview');
     }
   }
 </code></pre><p> 一个已知的bug是：如果不在<code>package.json</code>文件中在<code>grunt-contrib-imagemin</code>插件前引用<code>jpegtran-bin</code>插件会发生导致压缩错误(暂时不知道修复了没有)</p>
-<h4 id="grunt-contrib-cssmin"><a href="#grunt-contrib-cssmin" class="headerlink" title="grunt-contrib-cssmin"></a><a href="https://www.npmjs.com/package/grunt-contrib-cssmin" target="_blank" rel="external">grunt-contrib-cssmin</a></h4><p>压缩css文件</p>
+<h4 id="grunt-contrib-cssmin"><a href="#grunt-contrib-cssmin" class="headerlink" title="grunt-contrib-cssmin"></a><a href="https://www.npmjs.com/package/grunt-contrib-cssmin" target="_blank" rel="noopener">grunt-contrib-cssmin</a></h4><p>压缩css文件</p>
 <pre><code>cssmin: {
     target: {
         files: [{
@@ -275,7 +272,7 @@ ga('send', 'pageview');
             }]
            }
      }
-</code></pre><h4 id="grunt-contrib-uglify"><a href="#grunt-contrib-uglify" class="headerlink" title="grunt-contrib-uglify"></a><a href="https://www.npmjs.com/package/grunt-contrib-uglify" target="_blank" rel="external">grunt-contrib-uglify</a></h4><p>压缩js文件</p>
+</code></pre><h4 id="grunt-contrib-uglify"><a href="#grunt-contrib-uglify" class="headerlink" title="grunt-contrib-uglify"></a><a href="https://www.npmjs.com/package/grunt-contrib-uglify" target="_blank" rel="noopener">grunt-contrib-uglify</a></h4><p>压缩js文件</p>
 <pre><code>uglify: {
         all: {
                options: {
@@ -291,7 +288,7 @@ ga('send', 'pageview');
     }
 </code></pre><p><strong>其余等待补充</strong></p>
 <h2 id="grunt常用参数说明"><a href="#grunt常用参数说明" class="headerlink" title="grunt常用参数说明"></a>grunt常用参数说明</h2><blockquote>
-<p>其实在使用中，最复杂的可能就是文件选择的问题，除了gulp常用的通配符意外，grunt还有很多其他的文件选择方式，在上面的插件使用例子中我可以看出有好几种方式，将会在以下的文章中具体说明，其他请查考<a href="http://www.gruntjs.net/api/grunt" target="_blank" rel="external">Grunt API 列表</a></p>
+<p>其实在使用中，最复杂的可能就是文件选择的问题，除了gulp常用的通配符意外，grunt还有很多其他的文件选择方式，在上面的插件使用例子中我可以看出有好几种方式，将会在以下的文章中具体说明，其他请查考<a href="http://www.gruntjs.net/api/grunt" target="_blank" rel="noopener">Grunt API 列表</a></p>
 </blockquote>
 <pre><code>module.exports = function (grunt) {
     grunt.initConfig({
