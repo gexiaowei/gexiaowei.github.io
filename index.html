@@ -174,6 +174,102 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-centos-mount-sdb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/16/centos-mount-sdb/">centos挂载新硬盘</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/16/centos-mount-sdb/" class="archive-article-date">
+  	<time datetime="2018-07-16T05:20:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1 列出所有的硬盘</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l | grep -P <span class="string">"Disk /dev/[a-z]&#123;0,3&#125;:"</span></span><br><span class="line">Disk <span class="regexp">/dev/</span><span class="string">sda:</span> <span class="number">10.8</span> GB, <span class="number">10816946176</span> bytes</span><br><span class="line">Disk <span class="regexp">/dev/</span><span class="string">sdb:</span> <span class="number">107.4</span> GB, <span class="number">107374182400</span> bytes</span><br></pre></td></tr></table></figure>
+<p>从这里可以看到要挂载的硬盘是/dev/sdb</p>
+<p>2 分区&lt;—–代表按下回车键</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdb</span><br><span class="line">Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel</span><br><span class="line">Building a new DOS disklabel with disk identifier 0x8b821ab0.</span><br><span class="line">Changes will remain in memory only, until you decide to write them.</span><br><span class="line">After that, of course, the previous content won't be recoverable.</span><br><span class="line">Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)</span><br><span class="line">WARNING: DOS-compatible mode is deprecated. It's strongly recommended to</span><br><span class="line">         switch off the mode (command 'c') and <span class="keyword">change</span> display units <span class="keyword">to</span></span><br><span class="line">         sectors (command <span class="string">'u'</span>).</span><br><span class="line">Command (m <span class="keyword">for</span> <span class="keyword">help</span>): n &lt;<span class="comment">-----</span></span><br><span class="line">Command <span class="keyword">action</span></span><br><span class="line">   e   <span class="keyword">extended</span></span><br><span class="line">   p   primary <span class="keyword">partition</span> (<span class="number">1</span><span class="number">-4</span>)</span><br><span class="line">p &lt;<span class="comment">-----</span></span><br><span class="line"><span class="keyword">Partition</span> <span class="built_in">number</span> (<span class="number">1</span><span class="number">-4</span>): <span class="number">1</span>&lt;<span class="comment">-----</span></span><br><span class="line"><span class="keyword">First</span> cylinder (<span class="number">1</span><span class="number">-13054</span>, <span class="keyword">default</span> <span class="number">1</span>): &lt;<span class="comment">-----</span></span><br><span class="line"><span class="keyword">Using</span> <span class="keyword">default</span> <span class="keyword">value</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">Last</span> cylinder, +cylinders <span class="keyword">or</span> +<span class="keyword">size</span>&#123;K,M,G&#125; (<span class="number">1</span><span class="number">-13054</span>, <span class="keyword">default</span> <span class="number">13054</span>): &lt;<span class="comment">-----</span></span><br><span class="line"><span class="keyword">Using</span> <span class="keyword">default</span> <span class="keyword">value</span> <span class="number">13054</span></span><br><span class="line">Command (m <span class="keyword">for</span> <span class="keyword">help</span>): w &lt;<span class="comment">-----</span></span><br><span class="line">The <span class="keyword">partition</span> <span class="keyword">table</span> has been altered!</span><br><span class="line"><span class="keyword">Calling</span> ioctl() <span class="keyword">to</span> re-<span class="keyword">read</span> <span class="keyword">partition</span> table.</span><br><span class="line">Syncing disks.</span><br></pre></td></tr></table></figure>
+<p>执行fdisk -l可以看到多了一个分区，我的磁盘是sdb，对应增加的分区就是sdb1</p>
+<p>3 格式化</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sdb1</span><br><span class="line">mke2fs 1.41.12 (17-May-2010)</span><br><span class="line">Filesystem label=</span><br><span class="line">OS type: Linux</span><br><span class="line">Block <span class="attribute">size</span>=4096 (<span class="attribute">log</span>=2)</span><br><span class="line">Fragment <span class="attribute">size</span>=4096 (<span class="attribute">log</span>=2)</span><br><span class="line"><span class="attribute">Stride</span>=0 blocks, Stripe <span class="attribute">width</span>=0 blocks</span><br><span class="line">6553600 inodes, 26214055 blocks</span><br><span class="line">1310702 blocks (5.00%) reserved <span class="keyword">for</span> the super user</span><br><span class="line">First data <span class="attribute">block</span>=0</span><br><span class="line">Maximum filesystem <span class="attribute">blocks</span>=4294967296</span><br><span class="line">800 block groups</span><br><span class="line">32768 blocks per group, 32768 fragments per group</span><br><span class="line">8192 inodes per group</span><br><span class="line">Superblock backups stored on blocks: </span><br><span class="line">        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, </span><br><span class="line">        4096000, 7962624, 11239424, 20480000, 23887872</span><br><span class="line">Writing inode tables: done                            </span><br><span class="line">Creating journal (32768 blocks): done</span><br><span class="line">Writing superblocks <span class="keyword">and</span> filesystem<span class="built_in"> accounting </span>information: done</span><br><span class="line">This filesystem will be automatically checked every 34 mounts <span class="keyword">or</span></span><br><span class="line">180 days, whichever comes first.  Use tune2fs -c <span class="keyword">or</span> -i <span class="keyword">to</span> override.</span><br></pre></td></tr></table></figure>
+<p>4 挂载</p>
+<p>真正挂载的命令非常简单，假设我要挂在到/data目录下，确保/data已经存在，再执行下面的命令：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">mount</span> /dev/sdb1 /<span class="class"><span class="keyword">data</span></span></span><br></pre></td></tr></table></figure>
+<p>5 确认</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df</span><br><span class="line">Filesystem           <span class="number">1</span>K-blocks    Used Available Use% Mounted on</span><br><span class="line">/dev/mapper/VolGroup-LogVol00</span><br><span class="line">                       <span class="number">7932336</span> <span class="number">3150740</span>   <span class="number">4371996</span>  <span class="number">42</span>% /</span><br><span class="line">tmpfs                  <span class="number">1960904</span>       <span class="number">0</span>   <span class="number">1960904</span>   <span class="number">0</span>% /dev/shm</span><br><span class="line">/dev/sda1               <span class="number">487652</span>   <span class="number">41920</span>    <span class="number">420132</span>  <span class="number">10</span>% /boot</span><br><span class="line">/dev/sdb1            <span class="number">103079868</span>   <span class="number">61044</span>  <span class="number">97776016</span>   <span class="number">1</span>% /data</span><br></pre></td></tr></table></figure>
+<p>可以看到新的100G的硬盘已经挂载到/data目录下了。</p>
+<p>6 还需要设置开机自动挂载，否则每次重启都要手动执行上面的mount命令。设置开机自动挂载的方法是：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="regexp">/etc/</span>fstab</span><br></pre></td></tr></table></figure>
+<p>在内容的最下面一行加上</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/sdb1       /<span class="class"><span class="keyword">data</span>   ext4    defaults        1       1</span></span><br></pre></td></tr></table></figure>
+<p>保存后重启系统，如果正常的话，应该已经自动挂载了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">centos7</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sdb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/16/centos-mount-sdb/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-centos-6-x-update-python-from-2-6-to-2-7" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -195,26 +291,26 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>CentOs 6.x的系统默认安装的Python版本是2.6.x，升级Python2.7.x需要解压、编译官方下载源文件</p>
-<h3 id="下载python2-7"><a href="#下载python2-7" class="headerlink" title="下载python2.7"></a>下载python2.7</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget http:<span class="comment">//www.python.org/ftp/python/2.7.10/Python-2.7.10.tar.xz</span></div><div class="line">unxz Python-<span class="number">2.7</span>.<span class="number">10</span><span class="selector-class">.tar</span><span class="selector-class">.xz</span></div><div class="line">tar -vxf Python-<span class="number">2.7</span>.<span class="number">10</span>.tar</div></pre></td></tr></table></figure>
-<h3 id="进入目录并执行以下命令进行配置"><a href="#进入目录并执行以下命令进行配置" class="headerlink" title="进入目录并执行以下命令进行配置"></a>进入目录并执行以下命令进行配置</h3><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">shared</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">loadable</span><span class="literal">-</span><span class="comment">sqlite</span><span class="literal">-</span><span class="comment">extensions</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">zlib</span></div></pre></td></tr></table></figure>
+<h3 id="下载python2-7"><a href="#下载python2-7" class="headerlink" title="下载python2.7"></a>下载python2.7</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:<span class="comment">//www.python.org/ftp/python/2.7.10/Python-2.7.10.tar.xz</span></span><br><span class="line">unxz Python-<span class="number">2.7</span>.<span class="number">10</span><span class="selector-class">.tar</span><span class="selector-class">.xz</span></span><br><span class="line">tar -vxf Python-<span class="number">2.7</span>.<span class="number">10</span>.tar</span><br></pre></td></tr></table></figure>
+<h3 id="进入目录并执行以下命令进行配置"><a href="#进入目录并执行以下命令进行配置" class="headerlink" title="进入目录并执行以下命令进行配置"></a>进入目录并执行以下命令进行配置</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./configure</span> <span class="params">--enable-shared</span> <span class="params">--enable-loadable-sqlite-extensions</span> <span class="params">--with-zlib</span></span><br></pre></td></tr></table></figure>
 <p>编译之前修改Setup文件，将zlib去掉注释</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi .<span class="regexp">/Modules/</span>Setup</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi .<span class="regexp">/Modules/</span>Setup</span><br></pre></td></tr></table></figure>
 <p>找到</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#zlib</span> zlibmodule<span class="selector-class">.c</span> -I$(prefix)/include -L$(exec_prefix)/lib -lz</div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#zlib</span> zlibmodule<span class="selector-class">.c</span> -I$(prefix)/include -L$(exec_prefix)/lib -lz</span><br></pre></td></tr></table></figure>
 <p>去掉注释并保存，然后进行编译和安装</p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">make</span> &amp;&amp; <span class="built_in">make</span> install</div></pre></td></tr></table></figure>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make</span> &amp;&amp; <span class="built_in">make</span> install</span><br></pre></td></tr></table></figure>
 <h3 id="备份python2-6-修改yum配置"><a href="#备份python2-6-修改yum配置" class="headerlink" title="备份python2.6,修改yum配置"></a>备份python2.6,修改yum配置</h3><p>yum依赖python2.6，不然执行yum命令将会提示你Python的版本不对</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv <span class="regexp">/usr/</span>bin<span class="regexp">/python /u</span>sr<span class="regexp">/bin/</span>python2.<span class="number">6.6</span></div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv <span class="regexp">/usr/</span>bin<span class="regexp">/python /u</span>sr<span class="regexp">/bin/</span>python2.<span class="number">6.6</span></span><br></pre></td></tr></table></figure>
 <p>然后编辑/usr/bin/yum，将第一行的<code>#!/usr/bin/python</code>修改成<code>#!/usr/bin/python2.6.6</code></p>
-<h3 id="创建python2-7软链接"><a href="#创建python2-7软链接" class="headerlink" title="创建python2.7软链接"></a>创建python2.7软链接</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -s <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>python2.<span class="number">7</span> <span class="regexp">/usr/</span>bin<span class="regexp">/python</span></div></pre></td></tr></table></figure>
+<h3 id="创建python2-7软链接"><a href="#创建python2-7软链接" class="headerlink" title="创建python2.7软链接"></a>创建python2.7软链接</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>python2.<span class="number">7</span> <span class="regexp">/usr/</span>bin<span class="regexp">/python</span></span><br></pre></td></tr></table></figure>
 <h3 id="检查python版本"><a href="#检查python版本" class="headerlink" title="检查python版本"></a>检查python版本</h3><p>使用<code>python -V</code>查看python版本信息，如果出现错误</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">error </span>while loading shared libraries: libpython2.7.so.1.0: cannot open shared object file: No such file or directory</div></pre></td></tr></table></figure>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">error </span>while loading shared libraries: libpython2.7.so.1.0: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
 <p>编辑配置文件</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/ld<span class="selector-class">.so</span><span class="selector-class">.conf</span></div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ld<span class="selector-class">.so</span><span class="selector-class">.conf</span></span><br></pre></td></tr></table></figure>
 <p>添加新的一行内容<code>/usr/local/lib</code>，保存退出，然后执行</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/sbin/</span>ldconfig </div><div class="line"><span class="regexp">/sbin/</span>ldconfig -v</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/sbin/</span>ldconfig </span><br><span class="line"><span class="regexp">/sbin/</span>ldconfig -v</span><br></pre></td></tr></table></figure>
 <h3 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h3><p>下载最新版的pip，然后安装</p>
-<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">wget </span><span class="string">https:</span>//<span class="string">bootstrap.</span><span class="string">pypa.</span><span class="string">io/</span><span class="built_in">get-pip.py</span> <span class="built_in">--no-check-certificate</span></div><div class="line"><span class="string">python </span><span class="built_in">get-pip.py</span></div></pre></td></tr></table></figure>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">wget </span><span class="string">https:</span>//<span class="string">bootstrap.</span><span class="string">pypa.</span><span class="string">io/</span><span class="built_in">get-pip.py</span> <span class="built_in">--no-check-certificate</span></span><br><span class="line"><span class="built_in">python</span> <span class="built_in">get-pip.py</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -371,18 +467,18 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="检查是否安装zsh"><a href="#检查是否安装zsh" class="headerlink" title="检查是否安装zsh"></a>检查是否安装zsh</h3><p><code>cat /etc/shells</code></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/bin/</span>sh</div><div class="line"><span class="regexp">/bin/</span>bash</div><div class="line"><span class="regexp">/sbin/</span>nologin</div><div class="line"><span class="regexp">/bin/</span>dash</div><div class="line"><span class="regexp">/bin/</span>tcsh</div><div class="line"><span class="regexp">/bin/</span>csh</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/bin/</span>sh</span><br><span class="line"><span class="regexp">/bin/</span>bash</span><br><span class="line"><span class="regexp">/sbin/</span>nologin</span><br><span class="line"><span class="regexp">/bin/</span>dash</span><br><span class="line"><span class="regexp">/bin/</span>tcsh</span><br><span class="line"><span class="regexp">/bin/</span>csh</span><br></pre></td></tr></table></figure>
 <p>显示没有安装zsh</p>
 <h3 id="安装zsh包"><a href="#安装zsh包" class="headerlink" title="安装zsh包"></a>安装zsh包</h3><p><code>yum -y install zsh</code></p>
 <p>再次检查是否安装zsh</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/bin/</span>sh</div><div class="line"><span class="regexp">/bin/</span>bash</div><div class="line"><span class="regexp">/sbin/</span>nologin</div><div class="line"><span class="regexp">/bin/</span>dash</div><div class="line"><span class="regexp">/bin/</span>tcsh</div><div class="line"><span class="regexp">/bin/</span>csh</div><div class="line"><span class="regexp">/bin/</span>zsh</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/bin/</span>sh</span><br><span class="line"><span class="regexp">/bin/</span>bash</span><br><span class="line"><span class="regexp">/sbin/</span>nologin</span><br><span class="line"><span class="regexp">/bin/</span>dash</span><br><span class="line"><span class="regexp">/bin/</span>tcsh</span><br><span class="line"><span class="regexp">/bin/</span>csh</span><br><span class="line"><span class="regexp">/bin/</span>zsh</span><br></pre></td></tr></table></figure>
 <p>显示已经安装zsh</p>
 <h3 id="切换shell至zsh"><a href="#切换shell至zsh" class="headerlink" title="切换shell至zsh"></a>切换shell至zsh</h3><p><code>chsh -s /bin/zsh</code></p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Changing <span class="built_in">shell</span> <span class="keyword">for</span> root.</div><div class="line"><span class="built_in">Shell</span> changed.</div></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Changing <span class="keyword">shell</span><span class="bash"> <span class="keyword">for</span> root.</span></span><br><span class="line"><span class="bash">Shell changed.</span></span><br></pre></td></tr></table></figure>
 <h3 id="重启连接检查是否切换到zsh"><a href="#重启连接检查是否切换到zsh" class="headerlink" title="重启连接检查是否切换到zsh"></a>重启连接检查是否切换到zsh</h3><p><code>echo $SHELL</code></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/bin/</span>zsh</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/bin/</span>zsh</span><br></pre></td></tr></table></figure>
 <p>已经切换到zsh</p>
-<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh my zsh"></a>安装oh my zsh</h3><p>官网：<a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a></p>
+<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh my zsh"></a>安装oh my zsh</h3><p>官网：<a href="http://ohmyz.sh/" target="_blank" rel="noopener">http://ohmyz.sh/</a></p>
 <p><code>sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code></p>
 <h3 id="修改oh-my-zsh"><a href="#修改oh-my-zsh" class="headerlink" title="修改oh my zsh"></a>修改oh my zsh</h3><p><code>vi ~/.zshrc</code></p>
 <p>修改<code>ZSH_THEME</code>字段即可，修改完成后</p>
@@ -462,8 +558,8 @@ $ brew services start redis
 $ brew services stop redis
 </code></pre><h4 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h4><p>The default plist provided by homebrew stores the redis configuration at <code>/usr/local/etc/redis.conf</code>.</p>
 <p>For more about <code>launchctl</code> see:</p>
-<p><a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/launchctl.1.html#//apple_ref/doc/man/1/launchctl" target="_blank" rel="external">https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/launchctl.1.html#//apple_ref/doc/man/1/launchctl</a></p>
-<p><a href="http://launchd.info/" target="_blank" rel="external">http://launchd.info/</a></p>
+<p><a href="https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/launchctl.1.html#//apple_ref/doc/man/1/launchctl" target="_blank" rel="noopener">https://developer.apple.com/library/mac/documentation/Darwin/Reference/ManPages/man1/launchctl.1.html#//apple_ref/doc/man/1/launchctl</a></p>
+<p><a href="http://launchd.info/" target="_blank" rel="noopener">http://launchd.info/</a></p>
 
       
 
@@ -733,7 +829,7 @@ $ brew services stop redis
       
         <p>在chrome中手动添加非官方扩展时，会出现重启浏览器以后无法启用扩展的情况（如图所示：）<br><img src="https://ww1.sinaimg.cn/large/006tNc79gw1fbp3ml911jj30km03ujrp.jpg" alt=""></p>
 <p>最近群友提供了一个方法，特此弄一个中文教程；</p>
-<p>原文地址：<a href="https://hencolle.com/2016/10/16/baidu_exporter/" target="_blank" rel="external">https://hencolle.com/2016/10/16/baidu_exporter/</a></p>
+<p>原文地址：<a href="https://hencolle.com/2016/10/16/baidu_exporter/" target="_blank" rel="noopener">https://hencolle.com/2016/10/16/baidu_exporter/</a></p>
 <p><strong>注意：该方法只适用于 通过 crx 文件安装的扩展（将crx文件拖入chrome扩展程序界面）</strong></p>
 <h4 id="首先下载一个描述文件："><a href="#首先下载一个描述文件：" class="headerlink" title="首先下载一个描述文件："></a>首先下载一个描述文件：</h4><p>Github地址：</p>
 <p><a href="">https://gist.github.com/Explorare/be3dd598289252698cd37bca04abd0fe#file-com-google-chrome-mobileconfig</a></p>
@@ -967,90 +1063,6 @@ $ brew services stop redis
 
 
   
-    <article id="post-grunt-simple-guide" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/27/grunt-simple-guide/">Grunt使用指南</a>
-    </h1>
-  
-
-        
-        <a href="/2015/10/27/grunt-simple-guide/" class="archive-article-date">
-  	<time datetime="2015-10-26T17:19:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
-<p>grunt是一个基于node一个前端自动构建工具，自动化。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。当你在 Gruntfile 文件正确配置好了任务，任务运行器就会自动帮你或你的小组完成大部分无聊的工作。</p>
-</blockquote>
-<p>在一开始的项目中我并没有使用gulp，而使用grunt的主要原因，我没有在gulp的插件列表找到用于发布的sftp的插件，而在grunt中找到了。可见grunt的插件生态非常完整，这是grunt的一个优势（现在gulp已经存在了sftp插件）。</p>
-<p>ps:在gulp的使用指南中,我们简单的介绍了node和npm一些使用方法，这里就不多做介绍了。</p>
-        
-          <a class="article-more-a" href="/2015/10/27/grunt-simple-guide/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">guide</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">grunt</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2015/10/27/grunt-simple-guide/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -1156,6 +1168,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sdb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
@@ -1176,10 +1196,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
@@ -1192,15 +1208,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">React-Native</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1216,7 +1228,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Jade</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1224,7 +1244,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">Jade</a>
               </li>
             
             <div class="clearfix"></div>

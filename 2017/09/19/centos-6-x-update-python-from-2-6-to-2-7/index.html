@@ -195,26 +195,26 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>CentOs 6.x的系统默认安装的Python版本是2.6.x，升级Python2.7.x需要解压、编译官方下载源文件</p>
-<h3 id="下载python2-7"><a href="#下载python2-7" class="headerlink" title="下载python2.7"></a>下载python2.7</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget http:<span class="comment">//www.python.org/ftp/python/2.7.10/Python-2.7.10.tar.xz</span></div><div class="line">unxz Python-<span class="number">2.7</span>.<span class="number">10</span><span class="selector-class">.tar</span><span class="selector-class">.xz</span></div><div class="line">tar -vxf Python-<span class="number">2.7</span>.<span class="number">10</span>.tar</div></pre></td></tr></table></figure>
-<h3 id="进入目录并执行以下命令进行配置"><a href="#进入目录并执行以下命令进行配置" class="headerlink" title="进入目录并执行以下命令进行配置"></a>进入目录并执行以下命令进行配置</h3><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">.</span><span class="comment">/configure</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">shared</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">enable</span><span class="literal">-</span><span class="comment">loadable</span><span class="literal">-</span><span class="comment">sqlite</span><span class="literal">-</span><span class="comment">extensions</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">with</span><span class="literal">-</span><span class="comment">zlib</span></div></pre></td></tr></table></figure>
+<h3 id="下载python2-7"><a href="#下载python2-7" class="headerlink" title="下载python2.7"></a>下载python2.7</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget http:<span class="comment">//www.python.org/ftp/python/2.7.10/Python-2.7.10.tar.xz</span></span><br><span class="line">unxz Python-<span class="number">2.7</span>.<span class="number">10</span><span class="selector-class">.tar</span><span class="selector-class">.xz</span></span><br><span class="line">tar -vxf Python-<span class="number">2.7</span>.<span class="number">10</span>.tar</span><br></pre></td></tr></table></figure>
+<h3 id="进入目录并执行以下命令进行配置"><a href="#进入目录并执行以下命令进行配置" class="headerlink" title="进入目录并执行以下命令进行配置"></a>进入目录并执行以下命令进行配置</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./configure</span> <span class="params">--enable-shared</span> <span class="params">--enable-loadable-sqlite-extensions</span> <span class="params">--with-zlib</span></span><br></pre></td></tr></table></figure>
 <p>编译之前修改Setup文件，将zlib去掉注释</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi .<span class="regexp">/Modules/</span>Setup</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi .<span class="regexp">/Modules/</span>Setup</span><br></pre></td></tr></table></figure>
 <p>找到</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-id">#zlib</span> zlibmodule<span class="selector-class">.c</span> -I$(prefix)/include -L$(exec_prefix)/lib -lz</div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#zlib</span> zlibmodule<span class="selector-class">.c</span> -I$(prefix)/include -L$(exec_prefix)/lib -lz</span><br></pre></td></tr></table></figure>
 <p>去掉注释并保存，然后进行编译和安装</p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">make</span> &amp;&amp; <span class="built_in">make</span> install</div></pre></td></tr></table></figure>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">make</span> &amp;&amp; <span class="built_in">make</span> install</span><br></pre></td></tr></table></figure>
 <h3 id="备份python2-6-修改yum配置"><a href="#备份python2-6-修改yum配置" class="headerlink" title="备份python2.6,修改yum配置"></a>备份python2.6,修改yum配置</h3><p>yum依赖python2.6，不然执行yum命令将会提示你Python的版本不对</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mv <span class="regexp">/usr/</span>bin<span class="regexp">/python /u</span>sr<span class="regexp">/bin/</span>python2.<span class="number">6.6</span></div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv <span class="regexp">/usr/</span>bin<span class="regexp">/python /u</span>sr<span class="regexp">/bin/</span>python2.<span class="number">6.6</span></span><br></pre></td></tr></table></figure>
 <p>然后编辑/usr/bin/yum，将第一行的<code>#!/usr/bin/python</code>修改成<code>#!/usr/bin/python2.6.6</code></p>
-<h3 id="创建python2-7软链接"><a href="#创建python2-7软链接" class="headerlink" title="创建python2.7软链接"></a>创建python2.7软链接</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ln -s <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>python2.<span class="number">7</span> <span class="regexp">/usr/</span>bin<span class="regexp">/python</span></div></pre></td></tr></table></figure>
+<h3 id="创建python2-7软链接"><a href="#创建python2-7软链接" class="headerlink" title="创建python2.7软链接"></a>创建python2.7软链接</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s <span class="regexp">/usr/</span>local<span class="regexp">/bin/</span>python2.<span class="number">7</span> <span class="regexp">/usr/</span>bin<span class="regexp">/python</span></span><br></pre></td></tr></table></figure>
 <h3 id="检查python版本"><a href="#检查python版本" class="headerlink" title="检查python版本"></a>检查python版本</h3><p>使用<code>python -V</code>查看python版本信息，如果出现错误</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">error </span>while loading shared libraries: libpython2.7.so.1.0: cannot open shared object file: No such file or directory</div></pre></td></tr></table></figure>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">error </span>while loading shared libraries: libpython2.7.so.1.0: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
 <p>编辑配置文件</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/ld<span class="selector-class">.so</span><span class="selector-class">.conf</span></div></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/ld<span class="selector-class">.so</span><span class="selector-class">.conf</span></span><br></pre></td></tr></table></figure>
 <p>添加新的一行内容<code>/usr/local/lib</code>，保存退出，然后执行</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/sbin/</span>ldconfig </div><div class="line"><span class="regexp">/sbin/</span>ldconfig -v</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/sbin/</span>ldconfig </span><br><span class="line"><span class="regexp">/sbin/</span>ldconfig -v</span><br></pre></td></tr></table></figure>
 <h3 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h3><p>下载最新版的pip，然后安装</p>
-<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="string">wget </span><span class="string">https:</span>//<span class="string">bootstrap.</span><span class="string">pypa.</span><span class="string">io/</span><span class="built_in">get-pip.py</span> <span class="built_in">--no-check-certificate</span></div><div class="line"><span class="string">python </span><span class="built_in">get-pip.py</span></div></pre></td></tr></table></figure>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">wget </span><span class="string">https:</span>//<span class="string">bootstrap.</span><span class="string">pypa.</span><span class="string">io/</span><span class="built_in">get-pip.py</span> <span class="built_in">--no-check-certificate</span></span><br><span class="line"><span class="built_in">python</span> <span class="built_in">get-pip.py</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -254,6 +254,15 @@ ga('send', 'pageview');
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/07/16/centos-mount-sdb/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          centos挂载新硬盘
+        
+      </div>
+    </a>
   
   
     <a href="/2017/09/19/alfred-allow-read-contacts-forever/" id="article-nav-older" class="article-nav-link-wrap">
@@ -391,6 +400,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sdb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
@@ -411,10 +428,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
@@ -427,15 +440,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">React-Native</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -451,7 +460,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Jade</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,7 +476,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">Jade</a>
               </li>
             
             <div class="clearfix"></div>

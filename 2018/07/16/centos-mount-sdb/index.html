@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://referenceerror.xyz">
-  <title>Tag: JavaScript | Xiaowei.Ge</title>
+  <title>centos挂载新硬盘 | Xiaowei.Ge</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="爱前端，爱Javascript，最爱我的小玉...">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xiaowei.Ge">
-<meta property="og:url" content="https://referenceerror.xyz/tags/JavaScript/index.html">
+  <meta name="description" content="1 列出所有的硬盘 123fdisk -l | grep -P &quot;Disk /dev/[a-z]&amp;#123;0,3&amp;#125;:&quot;Disk /dev/sda: 10.8 GB, 10816946176 bytesDisk /dev/sdb: 107.4 GB, 107374182400 bytes 从这里可以看到要挂载的硬盘是/dev/sdb 2 分区&amp;lt;—–代表按下回车键 123456789">
+<meta name="keywords" content="centos7,sdb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="centos挂载新硬盘">
+<meta property="og:url" content="https://referenceerror.xyz/2018/07/16/centos-mount-sdb/index.html">
 <meta property="og:site_name" content="Xiaowei.Ge">
-<meta property="og:description" content="爱前端，爱Javascript，最爱我的小玉...">
+<meta property="og:description" content="1 列出所有的硬盘 123fdisk -l | grep -P &quot;Disk /dev/[a-z]&amp;#123;0,3&amp;#125;:&quot;Disk /dev/sda: 10.8 GB, 10816946176 bytesDisk /dev/sdb: 107.4 GB, 107374182400 bytes 从这里可以看到要挂载的硬盘是/dev/sdb 2 分区&amp;lt;—–代表按下回车键 123456789">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-16T05:27:28.229Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xiaowei.Ge">
-<meta name="twitter:description" content="爱前端，爱Javascript，最爱我的小玉...">
+<meta name="twitter:title" content="centos挂载新硬盘">
+<meta name="twitter:description" content="1 列出所有的硬盘 123fdisk -l | grep -P &quot;Disk /dev/[a-z]&amp;#123;0,3&amp;#125;:&quot;Disk /dev/sda: 10.8 GB, 10816946176 bytesDisk /dev/sdb: 107.4 GB, 107374182400 bytes 从这里可以看到要挂载的硬盘是/dev/sdb 2 分区&amp;lt;—–代表按下回车键 123456789">
   
     <link rel="alternative" href="/atom.xml" title="Xiaowei.Ge" type="application/atom+xml">
   
@@ -172,68 +174,117 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-centos-mount-sdb" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/21/regex-annotation/" class="archive-article-date">
-  	<time datetime="2017-02-21T10:22:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/21/regex-annotation/">JavaScript正则表达式应用 移除注释</a>
+    <h1 class="article-title" itemprop="name">
+      centos挂载新硬盘
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/07/16/centos-mount-sdb/" class="archive-article-date">
+  	<time datetime="2018-07-16T05:20:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1 列出所有的硬盘</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fdisk -l | grep -P <span class="string">"Disk /dev/[a-z]&#123;0,3&#125;:"</span></span><br><span class="line">Disk <span class="regexp">/dev/</span><span class="string">sda:</span> <span class="number">10.8</span> GB, <span class="number">10816946176</span> bytes</span><br><span class="line">Disk <span class="regexp">/dev/</span><span class="string">sdb:</span> <span class="number">107.4</span> GB, <span class="number">107374182400</span> bytes</span><br></pre></td></tr></table></figure>
+<p>从这里可以看到要挂载的硬盘是/dev/sdb</p>
+<p>2 分区&lt;—–代表按下回车键</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdb</span><br><span class="line">Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel</span><br><span class="line">Building a new DOS disklabel with disk identifier 0x8b821ab0.</span><br><span class="line">Changes will remain in memory only, until you decide to write them.</span><br><span class="line">After that, of course, the previous content won't be recoverable.</span><br><span class="line">Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)</span><br><span class="line">WARNING: DOS-compatible mode is deprecated. It's strongly recommended to</span><br><span class="line">         switch off the mode (command 'c') and <span class="keyword">change</span> display units <span class="keyword">to</span></span><br><span class="line">         sectors (command <span class="string">'u'</span>).</span><br><span class="line">Command (m <span class="keyword">for</span> <span class="keyword">help</span>): n &lt;<span class="comment">-----</span></span><br><span class="line">Command <span class="keyword">action</span></span><br><span class="line">   e   <span class="keyword">extended</span></span><br><span class="line">   p   primary <span class="keyword">partition</span> (<span class="number">1</span><span class="number">-4</span>)</span><br><span class="line">p &lt;<span class="comment">-----</span></span><br><span class="line"><span class="keyword">Partition</span> <span class="built_in">number</span> (<span class="number">1</span><span class="number">-4</span>): <span class="number">1</span>&lt;<span class="comment">-----</span></span><br><span class="line"><span class="keyword">First</span> cylinder (<span class="number">1</span><span class="number">-13054</span>, <span class="keyword">default</span> <span class="number">1</span>): &lt;<span class="comment">-----</span></span><br><span class="line"><span class="keyword">Using</span> <span class="keyword">default</span> <span class="keyword">value</span> <span class="number">1</span></span><br><span class="line"><span class="keyword">Last</span> cylinder, +cylinders <span class="keyword">or</span> +<span class="keyword">size</span>&#123;K,M,G&#125; (<span class="number">1</span><span class="number">-13054</span>, <span class="keyword">default</span> <span class="number">13054</span>): &lt;<span class="comment">-----</span></span><br><span class="line"><span class="keyword">Using</span> <span class="keyword">default</span> <span class="keyword">value</span> <span class="number">13054</span></span><br><span class="line">Command (m <span class="keyword">for</span> <span class="keyword">help</span>): w &lt;<span class="comment">-----</span></span><br><span class="line">The <span class="keyword">partition</span> <span class="keyword">table</span> has been altered!</span><br><span class="line"><span class="keyword">Calling</span> ioctl() <span class="keyword">to</span> re-<span class="keyword">read</span> <span class="keyword">partition</span> table.</span><br><span class="line">Syncing disks.</span><br></pre></td></tr></table></figure>
+<p>执行fdisk -l可以看到多了一个分区，我的磁盘是sdb，对应增加的分区就是sdb1</p>
+<p>3 格式化</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /dev/sdb1</span><br><span class="line">mke2fs 1.41.12 (17-May-2010)</span><br><span class="line">Filesystem label=</span><br><span class="line">OS type: Linux</span><br><span class="line">Block <span class="attribute">size</span>=4096 (<span class="attribute">log</span>=2)</span><br><span class="line">Fragment <span class="attribute">size</span>=4096 (<span class="attribute">log</span>=2)</span><br><span class="line"><span class="attribute">Stride</span>=0 blocks, Stripe <span class="attribute">width</span>=0 blocks</span><br><span class="line">6553600 inodes, 26214055 blocks</span><br><span class="line">1310702 blocks (5.00%) reserved <span class="keyword">for</span> the super user</span><br><span class="line">First data <span class="attribute">block</span>=0</span><br><span class="line">Maximum filesystem <span class="attribute">blocks</span>=4294967296</span><br><span class="line">800 block groups</span><br><span class="line">32768 blocks per group, 32768 fragments per group</span><br><span class="line">8192 inodes per group</span><br><span class="line">Superblock backups stored on blocks: </span><br><span class="line">        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, </span><br><span class="line">        4096000, 7962624, 11239424, 20480000, 23887872</span><br><span class="line">Writing inode tables: done                            </span><br><span class="line">Creating journal (32768 blocks): done</span><br><span class="line">Writing superblocks <span class="keyword">and</span> filesystem<span class="built_in"> accounting </span>information: done</span><br><span class="line">This filesystem will be automatically checked every 34 mounts <span class="keyword">or</span></span><br><span class="line">180 days, whichever comes first.  Use tune2fs -c <span class="keyword">or</span> -i <span class="keyword">to</span> override.</span><br></pre></td></tr></table></figure>
+<p>4 挂载</p>
+<p>真正挂载的命令非常简单，假设我要挂在到/data目录下，确保/data已经存在，再执行下面的命令：</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">mount</span> /dev/sdb1 /<span class="class"><span class="keyword">data</span></span></span><br></pre></td></tr></table></figure>
+<p>5 确认</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">df</span><br><span class="line">Filesystem           <span class="number">1</span>K-blocks    Used Available Use% Mounted on</span><br><span class="line">/dev/mapper/VolGroup-LogVol00</span><br><span class="line">                       <span class="number">7932336</span> <span class="number">3150740</span>   <span class="number">4371996</span>  <span class="number">42</span>% /</span><br><span class="line">tmpfs                  <span class="number">1960904</span>       <span class="number">0</span>   <span class="number">1960904</span>   <span class="number">0</span>% /dev/shm</span><br><span class="line">/dev/sda1               <span class="number">487652</span>   <span class="number">41920</span>    <span class="number">420132</span>  <span class="number">10</span>% /boot</span><br><span class="line">/dev/sdb1            <span class="number">103079868</span>   <span class="number">61044</span>  <span class="number">97776016</span>   <span class="number">1</span>% /data</span><br></pre></td></tr></table></figure>
+<p>可以看到新的100G的硬盘已经挂载到/data目录下了。</p>
+<p>6 还需要设置开机自动挂载，否则每次重启都要手动执行上面的mount命令。设置开机自动挂载的方法是：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi <span class="regexp">/etc/</span>fstab</span><br></pre></td></tr></table></figure>
+<p>在内容的最下面一行加上</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/sdb1       /<span class="class"><span class="keyword">data</span>   ext4    defaults        1       1</span></span><br></pre></td></tr></table></figure>
+<p>保存后重启系统，如果正常的话，应该已经自动挂载了。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">正则</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">centos7</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">注释</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">JavaScript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">sdb</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/09/19/centos-6-x-update-python-from-2-6-to-2-7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">centos 6.x 升级python2.6到python2.7</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -256,9 +307,9 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

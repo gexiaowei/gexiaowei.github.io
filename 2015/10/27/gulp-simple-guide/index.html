@@ -203,7 +203,7 @@ ga('send', 'pageview');
 <p>ps:本文基于Mac环境下书写，Win环境下情自行探索</p>
 <a id="more"></a>
 <h2 id="安装Node"><a href="#安装Node" class="headerlink" title="安装Node"></a>安装Node</h2><blockquote>
-<p>访问<a href="https://nodejs.org/en/" target="_blank" rel="external">nodejs官网地址</a>下载nodejs,</p>
+<p>访问<a href="https://nodejs.org/en/" target="_blank" rel="noopener">nodejs官网地址</a>下载nodejs,</p>
 </blockquote>
 <p>安装完成后可以用 node -v 来校验node是否安装完成(最新版本为：4.2.1)。</p>
 <p>npm(Node Package Manager)管理工具是node自带的包管理工具，，是一个NodeJS包管理和分发工具，我们需要的插件的安装全部依赖于npm下载</p>
@@ -211,12 +211,12 @@ ga('send', 'pageview');
 <p>在当前目录下生成一个package.json的文件，安装控制台的提示输入即可。</p>
 <h4 id="npm全局安装依赖包"><a href="#npm全局安装依赖包" class="headerlink" title="npm全局安装依赖包"></a>npm全局安装依赖包</h4><p><code>npm install &lt;package-name&gt; -g</code></p>
 <p><strong>请注意以下问题：</strong></p>
-<p>在mac下使用全局安装会提示权限不足的问题，可以使用<code>sudo</code>命令来临时解决权限不足的问题，但是根本解决的问题请参考官方文档<a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions" target="_blank" rel="external">fixing-npm-permissions</a></p>
+<p>在mac下使用全局安装会提示权限不足的问题，可以使用<code>sudo</code>命令来临时解决权限不足的问题，但是根本解决的问题请参考官方文档<a href="https://docs.npmjs.com/getting-started/fixing-npm-permissions" target="_blank" rel="noopener">fixing-npm-permissions</a></p>
 <h4 id="npm的安装依赖包"><a href="#npm的安装依赖包" class="headerlink" title="npm的安装依赖包"></a>npm的安装依赖包</h4><p><code>npm install</code></p>
 <p>会安装当前目录下目录下<code>package.json</code>文件夹<code>dependencies</code>字段下所有的依赖包</p>
 <h4 id="npm的新增依赖包"><a href="#npm的新增依赖包" class="headerlink" title="npm的新增依赖包"></a>npm的新增依赖包</h4><p><code>npm install &lt;package-name&gt;</code><br>会安装当前依赖包的包名，并在当前目录下<code>package.json</code>文件夹<code>dependencies</code>字段增加一个字段</p>
 <h2 id="安装Gulp"><a href="#安装Gulp" class="headerlink" title="安装Gulp"></a>安装Gulp</h2><blockquote>
-<p>在<a href="http://www.gulpjs.com.cn" target="_blank" rel="external">gulp中文网</a>下有详细介绍gulp的一些细节,可以访问查找。</p>
+<p>在<a href="http://www.gulpjs.com.cn" target="_blank" rel="noopener">gulp中文网</a>下有详细介绍gulp的一些细节,可以访问查找。</p>
 </blockquote>
 <h4 id="全局安装-gulp："><a href="#全局安装-gulp：" class="headerlink" title="全局安装 gulp："></a>全局安装 gulp：</h4><p><code>npm install --global gulp</code></p>
 <h4 id="作为项目的开发依赖（devDependencies）安装："><a href="#作为项目的开发依赖（devDependencies）安装：" class="headerlink" title="作为项目的开发依赖（devDependencies）安装："></a>作为项目的开发依赖（devDependencies）安装：</h4><p><code>npm install --save-dev gulp</code></p>
@@ -230,14 +230,14 @@ ga('send', 'pageview');
 <h2 id="常用的gulp插件包"><a href="#常用的gulp插件包" class="headerlink" title="常用的gulp插件包"></a>常用的gulp插件包</h2><blockquote>
 <p>在这里会介绍一些常用的插件，它们的地址和基本用法，在他们各自的主页上有各自的具体参数和使用方式</p>
 </blockquote>
-<h4 id="gulp-rimraf"><a href="#gulp-rimraf" class="headerlink" title="gulp-rimraf"></a><a href="https://www.npmjs.com/package/gulp-rimraf" target="_blank" rel="external">gulp-rimraf</a></h4><p>删除文件夹以及指定的文件</p>
+<h4 id="gulp-rimraf"><a href="#gulp-rimraf" class="headerlink" title="gulp-rimraf"></a><a href="https://www.npmjs.com/package/gulp-rimraf" target="_blank" rel="noopener">gulp-rimraf</a></h4><p>删除文件夹以及指定的文件</p>
 <pre><code>var rimraf = require(&apos;gulp-rimraf&apos;);
 
 gulp.task(&apos;default&apos;, function() {
      return gulp.src(&apos;./**/*.js&apos;, { read: false }) // much faster 
                .pipe(rimraf());
 });
-</code></pre><h4 id="gulp-imagemin"><a href="#gulp-imagemin" class="headerlink" title="gulp-imagemin"></a><a href="https://www.npmjs.com/package/gulp-imagemin" target="_blank" rel="external">gulp-imagemin</a></h4><p>压缩图片文件（因为是用pngquant来做压缩，需要手动去依赖“imagemin-pngquant”包）</p>
+</code></pre><h4 id="gulp-imagemin"><a href="#gulp-imagemin" class="headerlink" title="gulp-imagemin"></a><a href="https://www.npmjs.com/package/gulp-imagemin" target="_blank" rel="noopener">gulp-imagemin</a></h4><p>压缩图片文件（因为是用pngquant来做压缩，需要手动去依赖“imagemin-pngquant”包）</p>
 <pre><code>var gulp = require(&apos;gulp&apos;);
 var imagemin = require(&apos;gulp-imagemin&apos;);
 var pngquant = require(&apos;imagemin-pngquant&apos;);
@@ -251,7 +251,7 @@ gulp.task(&apos;default&apos;, function () {
         }))
         .pipe(gulp.dest(&apos;dist/images&apos;));
 });
-</code></pre><h4 id="gulp-minify-css"><a href="#gulp-minify-css" class="headerlink" title="gulp-minify-css"></a><a href="https://www.npmjs.com/package/gulp-minify-css" target="_blank" rel="external">gulp-minify-css</a></h4><p>压缩css文件</p>
+</code></pre><h4 id="gulp-minify-css"><a href="#gulp-minify-css" class="headerlink" title="gulp-minify-css"></a><a href="https://www.npmjs.com/package/gulp-minify-css" target="_blank" rel="noopener">gulp-minify-css</a></h4><p>压缩css文件</p>
 <pre><code>var gulp = require(&apos;gulp&apos;);
 var minifyCss = require(&apos;gulp-minify-css&apos;);
 
@@ -260,7 +260,7 @@ gulp.task(&apos;default&apos;, function() {
     .pipe(minifyCss({compatibility: &apos;ie8&apos;}))
     .pipe(gulp.dest(&apos;dist&apos;));
 });
-</code></pre><h4 id="gulp-uglify"><a href="#gulp-uglify" class="headerlink" title="gulp-uglify"></a><a href="https://www.npmjs.com/package/gulp-uglify" target="_blank" rel="external">gulp-uglify</a></h4><p>压缩js文件</p>
+</code></pre><h4 id="gulp-uglify"><a href="#gulp-uglify" class="headerlink" title="gulp-uglify"></a><a href="https://www.npmjs.com/package/gulp-uglify" target="_blank" rel="noopener">gulp-uglify</a></h4><p>压缩js文件</p>
 <pre><code>var uglify = require(&apos;gulp-uglify&apos;);
 
 gulp.task(&apos;default&apos;, function() {
@@ -270,7 +270,7 @@ gulp.task(&apos;default&apos;, function() {
 });
 </code></pre><p><strong>其余等待补充</strong></p>
 <h2 id="gulp常用参数说明"><a href="#gulp常用参数说明" class="headerlink" title="gulp常用参数说明"></a>gulp常用参数说明</h2><blockquote>
-<p>在上面的常用gulp包里面我们发现了一些共通点，比如task、src、dest，这里只是简单的介绍部分函数，具体请参考<a href="http://www.gulpjs.com.cn/docs/api/" target="_blank" rel="external">gulp API 文档</a></p>
+<p>在上面的常用gulp包里面我们发现了一些共通点，比如task、src、dest，这里只是简单的介绍部分函数，具体请参考<a href="http://www.gulpjs.com.cn/docs/api/" target="_blank" rel="noopener">gulp API 文档</a></p>
 </blockquote>
 <p><code>gulp.task(name[, deps], fn)</code></p>
 <p>定义一个gulp任务，包含任务的名字、依赖任务列表的数组以及该任务要执行的一些操作</p>
@@ -287,12 +287,12 @@ gulp.task(&apos;default&apos;, function() {
 <p>!:非</p>
 </blockquote>
 <p><code>gulp.dest(path[, options])</code><br>简单理解就是需要输出的文件夹</p>
-<p><code>pipe</code><br>具体请参考nodejs的pipe函数<a href="https://nodejs.org/api/stream.html#stream_readable_pipe_destination_options" target="_blank" rel="external">pipe</a></p>
+<p><code>pipe</code><br>具体请参考nodejs的pipe函数<a href="https://nodejs.org/api/stream.html#stream_readable_pipe_destination_options" target="_blank" rel="noopener">pipe</a></p>
 <h2 id="gulp任务依赖"><a href="#gulp任务依赖" class="headerlink" title="gulp任务依赖"></a>gulp任务依赖</h2><blockquote>
-<p>默认的，task 将以最大的并发数执行，也就是说，gulp 会一次性运行所有的 task 并且不做任何等待。也就是说gulp所有的任务都是一个异步操作，并不像grunt的任务列表是一个同步操作。具体的请参考<a href="http://www.gulpjs.com.cn/docs/recipes/running-tasks-in-series/" target="_blank" rel="external">串行方式运行任务</a></p>
+<p>默认的，task 将以最大的并发数执行，也就是说，gulp 会一次性运行所有的 task 并且不做任何等待。也就是说gulp所有的任务都是一个异步操作，并不像grunt的任务列表是一个同步操作。具体的请参考<a href="http://www.gulpjs.com.cn/docs/recipes/running-tasks-in-series/" target="_blank" rel="noopener">串行方式运行任务</a></p>
 </blockquote>
 <h4 id="定义任务依赖"><a href="#定义任务依赖" class="headerlink" title="定义任务依赖"></a>定义任务依赖</h4><p>在<br><code>gulp.task(name[, deps], fn)</code><br>这个函数里面的第个参数中我们需要定义我们需要依赖的任务数组</p>
-<p>我们这里使用<a href="http://www.gulpjs.com.cn/docs/api/" target="_blank" rel="external">gulp API 文档</a>提供的第二种方式来定义依赖即返回一个stream:</p>
+<p>我们这里使用<a href="http://www.gulpjs.com.cn/docs/api/" target="_blank" rel="noopener">gulp API 文档</a>提供的第二种方式来定义依赖即返回一个stream:</p>
 <pre><code>var gulp = require(&apos;gulp&apos;),
       less = require(&apos;gulp-less&apos;),
       clean = require(&apos;gulp-clean&apos;);
@@ -522,6 +522,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sdb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
@@ -542,10 +550,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
@@ -558,15 +562,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">React-Native</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,7 +582,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Jade</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -590,7 +598,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">Jade</a>
               </li>
             
             <div class="clearfix"></div>

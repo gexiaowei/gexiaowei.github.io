@@ -194,18 +194,18 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="检查是否安装zsh"><a href="#检查是否安装zsh" class="headerlink" title="检查是否安装zsh"></a>检查是否安装zsh</h3><p><code>cat /etc/shells</code></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/bin/</span>sh</div><div class="line"><span class="regexp">/bin/</span>bash</div><div class="line"><span class="regexp">/sbin/</span>nologin</div><div class="line"><span class="regexp">/bin/</span>dash</div><div class="line"><span class="regexp">/bin/</span>tcsh</div><div class="line"><span class="regexp">/bin/</span>csh</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/bin/</span>sh</span><br><span class="line"><span class="regexp">/bin/</span>bash</span><br><span class="line"><span class="regexp">/sbin/</span>nologin</span><br><span class="line"><span class="regexp">/bin/</span>dash</span><br><span class="line"><span class="regexp">/bin/</span>tcsh</span><br><span class="line"><span class="regexp">/bin/</span>csh</span><br></pre></td></tr></table></figure>
 <p>显示没有安装zsh</p>
 <h3 id="安装zsh包"><a href="#安装zsh包" class="headerlink" title="安装zsh包"></a>安装zsh包</h3><p><code>yum -y install zsh</code></p>
 <p>再次检查是否安装zsh</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/bin/</span>sh</div><div class="line"><span class="regexp">/bin/</span>bash</div><div class="line"><span class="regexp">/sbin/</span>nologin</div><div class="line"><span class="regexp">/bin/</span>dash</div><div class="line"><span class="regexp">/bin/</span>tcsh</div><div class="line"><span class="regexp">/bin/</span>csh</div><div class="line"><span class="regexp">/bin/</span>zsh</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/bin/</span>sh</span><br><span class="line"><span class="regexp">/bin/</span>bash</span><br><span class="line"><span class="regexp">/sbin/</span>nologin</span><br><span class="line"><span class="regexp">/bin/</span>dash</span><br><span class="line"><span class="regexp">/bin/</span>tcsh</span><br><span class="line"><span class="regexp">/bin/</span>csh</span><br><span class="line"><span class="regexp">/bin/</span>zsh</span><br></pre></td></tr></table></figure>
 <p>显示已经安装zsh</p>
 <h3 id="切换shell至zsh"><a href="#切换shell至zsh" class="headerlink" title="切换shell至zsh"></a>切换shell至zsh</h3><p><code>chsh -s /bin/zsh</code></p>
-<figure class="highlight gauss"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Changing <span class="built_in">shell</span> <span class="keyword">for</span> root.</div><div class="line"><span class="built_in">Shell</span> changed.</div></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Changing <span class="keyword">shell</span><span class="bash"> <span class="keyword">for</span> root.</span></span><br><span class="line"><span class="bash">Shell changed.</span></span><br></pre></td></tr></table></figure>
 <h3 id="重启连接检查是否切换到zsh"><a href="#重启连接检查是否切换到zsh" class="headerlink" title="重启连接检查是否切换到zsh"></a>重启连接检查是否切换到zsh</h3><p><code>echo $SHELL</code></p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="regexp">/bin/</span>zsh</div></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/bin/</span>zsh</span><br></pre></td></tr></table></figure>
 <p>已经切换到zsh</p>
-<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh my zsh"></a>安装oh my zsh</h3><p>官网：<a href="http://ohmyz.sh/" target="_blank" rel="external">http://ohmyz.sh/</a></p>
+<h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh my zsh"></a>安装oh my zsh</h3><p>官网：<a href="http://ohmyz.sh/" target="_blank" rel="noopener">http://ohmyz.sh/</a></p>
 <p><code>sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code></p>
 <h3 id="修改oh-my-zsh"><a href="#修改oh-my-zsh" class="headerlink" title="修改oh my zsh"></a>修改oh my zsh</h3><p><code>vi ~/.zshrc</code></p>
 <p>修改<code>ZSH_THEME</code>字段即可，修改完成后</p>
@@ -376,6 +376,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">centos7</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">sdb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">centos</a>
               </li>
              
@@ -396,10 +404,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">chrome</a>
               </li>
              
@@ -412,15 +416,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">gulp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">React-Native</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -436,7 +436,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Jade</a>
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">plugin</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">redis</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -444,7 +452,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
+                <a href="javascript:void(0)" class="js-tag color5">Jade</a>
               </li>
             
             <div class="clearfix"></div>
